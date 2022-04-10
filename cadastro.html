@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <title>Cadastro</title>
+</head>
+
+<body>
+
+
+  <header class="header container">
+    <nav class="nav-header">
+      <h3>Cadastro</h3>
+      <ul class="lista-header lista-cadastro">
+        <li>
+          <a href="/index.html">Painel</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="container-cadastro">
+
+
+    <div class="container-loader" data-loader="geral">
+      <div class="loader">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <p></p>
+    </div>
+
+    <div class="box-cadastro">
+      <form data-formulario="cadastro-cartao">
+        <h2>Cadastrar cartão</h2>
+        <div>
+          <label for="instituicao">Instituição</label>
+          <select id="instituicao" required autocomplete="off">
+            <option value="" selected disabled></option>
+          </select>
+        </div>
+        <div>
+          <label for="nome-impresso">Nome impresso</label>
+          <input id="nome-impresso" required autocomplete="off" autofocus />
+        </div>
+        <div>
+          <label for="limite">Limite</label>
+          <input id="limite" required autocomplete="off" />
+        </div>
+        <button type="button" class="btn btn-cadastrar" disabled>Cadastrar cartão</button>
+      </form>
+      <div class="show-cartao">
+        <h3>Meu cartão</h3>
+        <div class="cartao">
+          <div class="logos-cartao">
+            <div class="logo-bandeira">
+              <img src="/prototipo/icons/mastercard.svg" alt="mastercard">
+            </div>
+            <div class="logo-instituicao">
+              <img src="img/icons-banco/c6bank.svg" alt="">
+            </div>
+          </div>
+          <p class="nome-impresso">Gabriel Souza</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="js/script.js"></script>
+</body>
+
+</html>

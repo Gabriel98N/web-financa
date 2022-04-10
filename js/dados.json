@@ -1,0 +1,93 @@
+[
+  {
+    "instituicao": "Nubank",
+    "bandeira": "Master Card",
+    "logo": "img/icons/master-card.svg",
+    "cor": "#9b02d6",
+    "logo_inst": "https://app.nubank.com.br/images/new-logo-white.svg"
+  },
+  {
+    "instituicao": "Inter",
+    "bandeira": "Master Card",
+    "logo": "img/icons/master-card.svg",
+    "cor": "#ff7a00",
+    "logo_inst": "img/icons-banco/inter.svg"
+  },
+  {
+    "instituicao": "C6 Bank",
+    "bandeira": "Master Card",
+    "logo": "img/icons/master-card.svg",
+    "cor": "#232323",
+    "logo_inst": "img/icons-banco/c6bank.svg"
+  },
+  {
+    "instituicao": "Next",
+    "bandeira": "Visa",
+    "logo": "img/icons/visa.svg",
+    "cor": "#00FF5F",
+    "logo_inst": "img/icons-banco/next.svg"
+  },
+  {
+    "instituicao": "Santander Fx",
+    "bandeira": "Visa",
+    "logo": "img/icons/visa.svg",
+    "cor": "#dc0000",
+    "logo_inst": "img/icons-banco/santander.svg"
+  },
+  {
+    "instituicao": "Will bank",
+    "bandeira": "Master Card",
+    "logo": "img/icons/master-card.svg",
+    "cor": "#FFD900",
+    "logo_inst": "img/icons-banco/logo_will.png"
+  },
+  {
+    "instituicao": "PicPay",
+    "bandeira": "Master Card",
+    "logo": "img/icons/master-card.svg",
+    "cor": "#181818",
+    "logo_inst": "img/icons-banco/picpay.svg"
+  },
+  {
+    "instituicao": "Neon",
+    "bandeira": "Visa",
+    "logo": "img/icons/visa.svg",
+    "cor": "#039FEA",
+    "logo_inst": "img/icons-banco/neon.svg"
+  },
+  {
+    "instituicao": "Digio",
+    "bandeira": "Master Card",
+    "logo": "img/icons/master-card.svg",
+    "cor": "#09255d",
+    "logo_inst": "img/icons-banco/digio.svg"
+  },
+  {
+    "instituicao": "Itaú Click",
+    "bandeira": "Visa",
+    "logo": "img/icons/visa.svg",
+    "cor": "#F4945E",
+    "logo_inst": "https://www.itau.com.br/assets/images/header/logo-itau-varejo-desktop.png"
+  },
+  {
+    "instituicao": "Mercado pago",
+    "bandeira": "Visa",
+    "logo": "img/icons/visa.svg",
+    "cor": "#202834",
+    "logo_inst": ""
+  },
+  {
+    "instituicao": "Banco Pan",
+    "bandeira": "Master card",
+    "logo": "img/icons/master-card.svg",
+    "cor": "#12C0FF",
+    "logo_inst": "img/icons-banco/pan.svg"
+  },
+  {
+    "instituicao": "Banco original",
+    "bandeira": "Master card",
+    "logo": "img/icons/master-card.svg",
+    "cor": "#059457",
+    "logo_inst": "img/icons-banco/original.svg"
+  }
+]

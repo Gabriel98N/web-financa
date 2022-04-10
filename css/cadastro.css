@@ -1,0 +1,98 @@
+.lista-cadastro li a {
+  text-decoration: underline;
+}
+
+.lista-cadastro li a:hover {
+  color: var(--cor-primaria);
+}
+
+.container-cadastro {
+  height: calc(100vh - 100px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--bg);
+  padding: var(--gap);
+}
+
+.container-cadastro:before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 7px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: var(--cor-primaria);
+}
+
+.box-cadastro {
+  position: relative;
+  display: flex;
+  gap: var(--gap);
+}
+
+.box-cadastro form {
+  width: 480px;
+  background-color: var(--bg3);
+  filter: var(--filter);
+  border-radius: 5px;
+  padding: var(--gap);
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap);
+}
+
+.box-cadastro h2 {
+  font-size: 1.5rem;
+}
+
+.box-cadastro form label {
+  margin-bottom: 5px;
+  font-weight: 500;
+  color: var(--cor2);
+}
+
+.box-cadastro form input,
+.box-cadastro form select,
+.btn-cadastrar {
+  height: 50px;
+  width: 100%;
+  border-radius: 5px;
+  border: 2px solid var(--border-color);
+  outline: none;
+  font-size: 1rem;
+  font-family: "Inter", "Roboto", sans-serif;
+  padding: 0 1.25rem;
+  color: var(--cor);
+}
+
+.btn-cadastrar {
+  border: 0;
+  background-color: var(--cor-primaria);
+  font-weight: bold;
+  color: #fff;
+  cursor: pointer;
+}
+
+.show-cartao {
+  width: 0;
+  position: relative;
+  overflow: hidden;
+  transition: 0.3s;
+}
+
+.show-cartao.active {
+  width: 300px;
+}
+
+.show-cartao h3 {
+  margin-bottom: 10px;
+  font-size: 1rem;
+}
+
+.show-cartao .cartao {
+  width: 100%;
+  position: absolute;
+  transition: 0.3s;
+}
