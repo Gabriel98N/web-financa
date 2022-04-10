@@ -91,7 +91,7 @@ body {
 .lista-header {
   display: flex;
   align-items: center;
-  gap: var(--gap);
+  gap: 0.625rem;
 }
 
 .lista-header svg {
