@@ -253,6 +253,17 @@ body {
   transform: translate3d(0, 0, 0);
 }
 
+.vazio {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  font-size: 0.845rem;
+  color: var(--cor);
+}
+
 .cartao-cadastrado .cartao {
   height: auto;
   border-radius: 5px;

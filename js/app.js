@@ -74,35 +74,42 @@ function App() {
       );
     });
 
-    arrCartao.forEach((cartao) => {
-      const div = dom.create("div");
-      div.classList.add("cartao");
+    if (arrCartao) {
+      arrCartao.forEach((cartao) => {
+        const div = dom.create("div");
+        div.classList.add("cartao");
 
-      dados.forEach(({ instituicao, logo, bandeira, logo_inst, cor }) => {
-        if (cartao.instituicao == instituicao) {
-          div.style.backgroundColor = cor;
-          div.innerHTML = `
-          <a href="#" class="link-cartao">
-            <div class="logos-cartao">
-            <div class="logo-bandeira">
-              <img src="${logo}" alt="${bandeira}">
-            </div>
-            <div class="logo-instituicao">
-              <img src="${logo_inst}" alt="${instituicao}">
+        dados.forEach(({ instituicao, logo, bandeira, logo_inst, cor }) => {
+          if (cartao.instituicao == instituicao) {
+            div.style.backgroundColor = cor;
+            div.innerHTML = `
+            <a href="#" class="link-cartao">
+              <div class="logos-cartao">
+              <div class="logo-bandeira">
+                <img src="${logo}" alt="${bandeira}">
               </div>
-            </div>
-          </a>
+              <div class="logo-instituicao">
+                <img src="${logo_inst}" alt="${instituicao}">
+                </div>
+              </div>
+            </a>
           `;
-        }
-      });
+          }
+        });
 
-      boxCartao.prepend(div);
-      cartaoAtivo();
-    });
+        boxCartao.prepend(div);
+        cartaoAtivo();
+      });
+    }
   }
 
   function cartaoAtivo() {
     const linkCartao = dom.els(".cartao-cadastrado .link-cartao");
+    const vazio = dom.el(".vazio");
+
+    if (linkCartao.length) vazio.style.display = "none";
+    else vazio.style.display = "flex";
+
     linkCartao.forEach((item) => {
       item.addEventListener("click", (e) => {
         e.preventDefault();
