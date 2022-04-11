@@ -77,30 +77,8 @@ function App() {
     }
 
     if (boxCartao) {
-      arrCartao.forEach((cartao) => {
-        const div = dom.create("div");
-        div.classList.add("cartao");
-
-        dados.forEach(({ instituicao, logo, bandeira, logo_inst, cor }) => {
-          if (cartao.instituicao == instituicao) {
-            div.style.backgroundColor = cor;
-            div.innerHTML = `
-            <a href="#" class="link-cartao">
-              <div class="logos-cartao">
-              <div class="logo-bandeira">
-                <img src="${logo}" alt="${bandeira}">
-              </div>
-              <div class="logo-instituicao">
-                <img src="${logo_inst}" alt="${instituicao}">
-                </div>
-              </div>
-            </a>
-          `;
-          }
-        });
-
-        boxCartao.prepend(div);
-        cartaoAtivo();
+      arrCartao.forEach((item) => {
+        console.log(item);
       });
     }
   }

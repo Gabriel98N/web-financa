@@ -26,13 +26,12 @@
 }
 
 .box-cadastro {
-  position: relative;
-  display: flex;
-  gap: var(--gap);
+  width: 100%;
 }
 
 .box-cadastro form {
-  width: 480px;
+  max-width: 450px;
+  margin: 0 auto;
   background-color: var(--bg3);
   filter: var(--filter);
   border-radius: 5px;
@@ -62,9 +61,13 @@
   border: 2px solid var(--border-color);
   outline: none;
   font-size: 1rem;
-  font-family: "Inter", "Roboto", sans-serif;
+  font-family: "Poppins", "Inter", "Roboto", sans-serif;
   padding: 0 1.25rem;
   color: var(--cor);
+}
+
+[data-formulario] > div {
+  position: relative;
 }
 
 .btn-cadastrar {
@@ -76,14 +79,25 @@
 }
 
 .show-cartao {
-  width: 0;
-  position: relative;
   overflow: hidden;
-  transition: 0.3s;
+  margin-top: 0.625rem;
+  display: none;
+  animation: animaCartao 0.3s ease-in-out;
 }
 
 .show-cartao.active {
-  width: 300px;
+  display: flex;
+}
+
+@keyframes animaCartao {
+  from {
+    opacity: 0;
+    transform: translate3d(-15px, 0, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
 }
 
 .show-cartao h3 {
@@ -92,7 +106,23 @@
 }
 
 .show-cartao .cartao {
-  width: 100%;
-  position: absolute;
+  width: 200px;
+  height: 120px;
   transition: 0.3s;
+}
+
+.show-cartao .cartao img {
+  width: 30px;
+}
+
+.show-cartao .cartao p {
+  font-size: 0.75rem;
+}
+
+@media (max-width: 1200px) {
+  .box-cadastro {
+    flex-direction: column;
+    top: 0;
+    left: 0;
+  }
 }
