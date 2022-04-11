@@ -62,19 +62,21 @@ function App() {
     const boxCartao = dom.el(".cartao-cadastrado");
     const dados = await dadosJSON();
 
-    abrirLista.addEventListener("click", (e) => {
-      e.preventDefault();
-      boxCartao.classList.add(active);
-      outsideEvent(
-        boxCartao,
-        () => {
-          boxCartao.classList.remove(active);
-        },
-        ["click"]
-      );
-    });
+    if (abrirLista) {
+      abrirLista.addEventListener("click", (e) => {
+        e.preventDefault();
+        boxCartao.classList.add(active);
+        outsideEvent(
+          boxCartao,
+          () => {
+            boxCartao.classList.remove(active);
+          },
+          ["click"]
+        );
+      });
+    }
 
-    if (arrCartao) {
+    if (boxCartao) {
       arrCartao.forEach((cartao) => {
         const div = dom.create("div");
         div.classList.add("cartao");
