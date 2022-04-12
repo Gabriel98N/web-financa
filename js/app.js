@@ -6,12 +6,9 @@ const dom = Dom();
 
 function App() {
   const loader = dom.el("[data-loader]");
-
   const inputInstituicao = dom.el("#instituicao");
-
   const cartao = dom.el(".area-cartao .cartao");
   const active = "active";
-
   const arrCartao = dom.getStorage("cartao");
 
   async function selectInstituicao() {
@@ -48,7 +45,7 @@ function App() {
     }
 
     if (boxCartao && arrCartao) {
-      arrCartao.forEach(({ instituicao, nomeImpresso }) => {
+      arrCartao.forEach(({ instituicao, nomeImpresso }, index) => {
         const div = dom.create("div");
         div.classList.add("cartao");
 
@@ -56,14 +53,12 @@ function App() {
           if (dado.instituicao == instituicao) {
             div.style.backgroundColor = dado.cor;
             div.innerHTML = `
-              <a href="#" class="link-cartao" title=${nomeImpresso}>
-                <p>${instituicao}</p>
-              </a>
+              <a href="#" class="link-cartao" title=${nomeImpresso} id="${index}"></a>
             `;
           }
         });
 
-        boxCartao.prepend(div);
+        boxCartao.append(div);
       });
 
       cartaoAtivo();
@@ -80,42 +75,36 @@ function App() {
     linkCartao.forEach((item) => {
       item.addEventListener("click", (e) => {
         e.preventDefault();
-        const banco = e.currentTarget.querySelector("p").innerText;
-        arrCartao.forEach((dado) => {
-          if (dado.instituicao.toLowerCase() == banco.toLowerCase())
+        arrCartao.forEach((dado, index) => {
+          if (item.id == index) {
             dado.status = true;
-          else dado.status = false;
+            dom.reloadLoader(
+              `Buscando dados do cartão <b>${dado.instituicao}</b>`,
+              '[data-loader="geral"]'
+            );
+          } else {
+            dado.status = false;
+          }
         });
         dom.setStorage("cartao", arrCartao);
-        dom.reloadLoader("Criando cartão", '[data-loader="geral"]');
-        location.reload();
       });
     });
 
     arrCartao.forEach(
-      ({
-        instituicao,
-        status,
-        cor,
-        logo_inst,
-        bandeira,
-        logo,
-        nomeImpresso,
-      }) => {
+      ({ status, cor, bandeira, logo, nomeImpresso }, index) => {
         if (status) {
           const logoBandeira = cartao.querySelector(".logo-bandeira img");
-          const logoInst = cartao.querySelector(".logo-instituicao img");
           const nome = cartao.querySelector("p");
+          const cartaoAtivo = linkCartao[index];
 
           cartao.style.backgroundColor = cor;
-
           logoBandeira.src = logo;
           logoBandeira.alt = bandeira;
-
-          logoInst.src = logo_inst;
-          logoInst.alt = instituicao;
-
           nome.innerText = nomeImpresso;
+
+          cartaoAtivo.innerHTML += `
+            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#fff"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg>  
+          `;
         }
       }
     );

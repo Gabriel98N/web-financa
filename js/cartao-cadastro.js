@@ -33,7 +33,6 @@ function cartaoCadastro() {
               cor: dado.cor,
               bandeira: dado.bandeira,
               logo: dado.logo,
-              logo_inst: dado.logo_inst,
             });
             dom.setStorage("cartao", arrCartao);
           }
@@ -54,7 +53,7 @@ function cartaoCadastro() {
     const handleSelectInst = (e) => {
       const target = e.target;
 
-      dados.forEach(({ instituicao, logo, bandeira, cor, logo_inst }) => {
+      dados.forEach(({ instituicao, logo, bandeira, cor }) => {
         if (instituicao === selectInstituicao.value) {
           if (target.id == "instituicao" || target.id === "nome-impresso") {
             dom.el(".show-cartao").classList.add(active);
@@ -63,9 +62,6 @@ function cartaoCadastro() {
 
             cartao.querySelector(".logo-bandeira img").src = logo;
             cartao.querySelector(".logo-bandeira img").alt = bandeira;
-
-            cartao.querySelector(".logo-instituicao img").src = logo_inst;
-            cartao.querySelector(".logo-instituicao img").alt = instituicao;
 
             cartao.querySelector("p").innerText = nomeImpresso.value;
           }

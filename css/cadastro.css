@@ -34,7 +34,7 @@
   margin: 0 auto;
   background-color: var(--bg3);
   filter: var(--filter);
-  border-radius: 5px;
+  border-radius: 15px;
   padding: var(--gap);
   display: flex;
   flex-direction: column;
@@ -57,7 +57,7 @@
 .btn-cadastrar {
   height: 50px;
   width: 100%;
-  border-radius: 5px;
+  border-radius: 6px;
   border: 2px solid var(--border-color);
   outline: none;
   font-size: 1rem;

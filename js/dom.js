@@ -28,7 +28,7 @@ function Dom() {
     const loader = document.querySelector(element);
 
     loader.classList.add("active");
-    loader.querySelector("p").innerText = mensagem;
+    loader.querySelector("p").innerHTML = mensagem;
 
     setTimeout(() => location.reload(), 2000);
   }

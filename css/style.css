@@ -2,16 +2,24 @@
 @import url("loader.css");
 
 :root {
-  --cor-primaria: #38003c;
-  --cor-secundaria: #f4eaf5;
+  --cor-primaria: #222c35;
+  --cor-secundaria: #eef1f5;
   --bg: #f9f8f6;
   --bg2: #f9f8f6;
   --bg3: #fff;
   --bg4: #f6eff7;
 
-  --cor: #72767e;
-  --cor2: #141314;
-  --cor3: #141314;
+  --cor: #b5b5b5;
+  --cor2: #2e2e2e;
+  --cor3: #2e2e2e;
+  --cor4: #fdfdfd;
+  --cor5: #1c242b;
+
+  --red: #d3786b;
+  --bg-red: #ffe0dc;
+
+  --green: #4ab085;
+  --bg-green: #dcfff0;
 
   --border-color: #e6e9ee;
 
@@ -106,7 +114,7 @@ body {
 .icon-header {
   width: 50px;
   height: 50px;
-  border-radius: 5px;
+  border-radius: 15px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -118,7 +126,7 @@ body {
   color: #fff;
   padding: 0.75rem 1.5rem;
   font-size: 0.845rem;
-  border-radius: 5px;
+  border-radius: 6px;
   font-weight: 500;
 }
 
@@ -128,6 +136,7 @@ body {
   left: 0;
   width: 100px;
   height: 100%;
+  background-color: var(--cor-primaria);
 }
 
 .nav-aside {
@@ -137,8 +146,18 @@ body {
   margin-top: 127px;
 }
 
+.lista-aside li span {
+  width: 50px;
+  height: 50px;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--cor5);
+}
+
 .lista-aside li svg {
-  fill: var(--cor);
+  fill: var(--cor4);
 }
 
 /*  Area painel */
@@ -161,7 +180,7 @@ body {
   display: flex;
   justify-content: center;
   flex-direction: column;
-  border-radius: 5px;
+  border-radius: 15px;
   filter: var(--filter);
   padding: var(--gap);
 }
@@ -169,8 +188,8 @@ body {
 .icon {
   width: 45px;
   height: 45px;
-  border-radius: 50%;
-  padding: 7px;
+  border-radius: 15px;
+  padding: 10px;
   margin-bottom: 1.25rem;
   background-color: var(--cor-secundaria);
 }
@@ -218,7 +237,7 @@ body {
 .abrir-lista-cartao {
   width: 50px;
   height: 50px;
-  border-radius: 50%;
+  border-radius: 15px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -231,7 +250,7 @@ body {
   right: 0;
   width: 100%;
   height: 250px;
-  border-radius: 5px;
+  border-radius: 15px;
   z-index: 1;
   background-color: var(--bg3);
   filter: var(--filter);
@@ -265,8 +284,8 @@ body {
 }
 
 .cartao-cadastrado .cartao {
-  height: auto;
-  border-radius: 5px;
+  height: 100%;
+  border-radius: 6px;
   padding: 0;
 }
 
@@ -279,11 +298,21 @@ body {
   justify-content: center;
 }
 
+.cartao-cadastrado .cartao a svg {
+  background-color: rgba(255, 255, 255, 0.2);
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  padding: 5px;
+}
+
 .cartao-cadastrado .cartao p {
   font-size: 0.625rem;
   line-height: 1.2;
   text-align: center;
 }
+
+/********************************************************/
 
 .cartao {
   height: 180px;
@@ -327,10 +356,11 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  border-radius: 6px;
 }
 
 .container-grafico {
-  border-radius: 5px;
+  border-radius: 15px;
 }
 
 .container-grafico h3 {
@@ -382,7 +412,7 @@ body {
 .container-transacao {
   min-height: 100vh;
   background-color: var(--bg3);
-  border-radius: 5px;
+  border-radius: 15px;
   filter: var(--filter);
   padding: var(--gap);
 }
