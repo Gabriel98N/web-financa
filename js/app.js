@@ -76,10 +76,24 @@ function App() {
       });
     }
 
-    if (boxCartao) {
-      arrCartao.forEach((item) => {
-        console.log(item);
+    if (boxCartao && arrCartao) {
+      arrCartao.forEach(({ instituicao, nomeImpresso }) => {
+        const div = dom.create("div");
+        div.classList.add("cartao");
+
+        dados.forEach((dado) => {
+          if (dado.instituicao == instituicao) {
+            div.style.backgroundColor = dado.cor;
+            div.innerHTML += `
+              <a href="#" class="link-cartao" title=${nomeImpresso}></a>
+            `;
+          }
+        });
+
+        boxCartao.prepend(div);
       });
+
+      cartaoAtivo();
     }
   }
 
