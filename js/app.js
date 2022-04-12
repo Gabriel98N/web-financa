@@ -6,11 +6,10 @@ const dom = Dom();
 
 function App() {
   const loader = dom.el("[data-loader]");
-  const formCadastro = dom.el('[data-formulario="cadastro-cartao"]');
-  const inputInstituicao = dom.el("#instituicao");
-  const nomeImpresso = dom.el("#nome-impresso");
 
-  const cartao = dom.el(".show-cartao .cartao");
+  const inputInstituicao = dom.el("#instituicao");
+
+  const cartao = dom.el(".area-cartao .cartao");
   const active = "active";
 
   const arrCartao = dom.getStorage("cartao");
@@ -27,34 +26,6 @@ function App() {
     });
 
     loader.style.display = "none";
-  }
-
-  async function showCartaoSelecionado() {
-    const dados = await dadosJSON();
-
-    const handleSelectInst = (e) => {
-      const target = e.target;
-
-      dados.forEach(({ instituicao, logo, bandeira, cor, logo_inst }) => {
-        if (instituicao === inputInstituicao.value) {
-          if (target.id == "instituicao" || target.id === "nome-impresso") {
-            dom.el(".show-cartao").classList.add(active);
-
-            cartao.style.backgroundColor = cor;
-
-            cartao.querySelector(".logo-bandeira img").src = logo;
-            cartao.querySelector(".logo-bandeira img").alt = bandeira;
-
-            cartao.querySelector(".logo-instituicao img").src = logo_inst;
-            cartao.querySelector(".logo-instituicao img").alt = instituicao;
-
-            cartao.querySelector("p").innerText = nomeImpresso.value;
-          }
-        }
-      });
-    };
-
-    formCadastro.addEventListener("input", handleSelectInst);
   }
 
   async function showCartaoCadastrado() {
@@ -84,8 +55,10 @@ function App() {
         dados.forEach((dado) => {
           if (dado.instituicao == instituicao) {
             div.style.backgroundColor = dado.cor;
-            div.innerHTML += `
-              <a href="#" class="link-cartao" title=${nomeImpresso}></a>
+            div.innerHTML = `
+              <a href="#" class="link-cartao" title=${nomeImpresso}>
+                <p>${instituicao}</p>
+              </a>
             `;
           }
         });
@@ -107,14 +80,50 @@ function App() {
     linkCartao.forEach((item) => {
       item.addEventListener("click", (e) => {
         e.preventDefault();
+        const banco = e.currentTarget.querySelector("p").innerText;
+        arrCartao.forEach((dado) => {
+          if (dado.instituicao.toLowerCase() == banco.toLowerCase())
+            dado.status = true;
+          else dado.status = false;
+        });
+        dom.setStorage("cartao", arrCartao);
+        dom.reloadLoader("Criando cartão", '[data-loader="geral"]');
+        location.reload();
       });
     });
+
+    arrCartao.forEach(
+      ({
+        instituicao,
+        status,
+        cor,
+        logo_inst,
+        bandeira,
+        logo,
+        nomeImpresso,
+      }) => {
+        if (status) {
+          const logoBandeira = cartao.querySelector(".logo-bandeira img");
+          const logoInst = cartao.querySelector(".logo-instituicao img");
+          const nome = cartao.querySelector("p");
+
+          cartao.style.backgroundColor = cor;
+
+          logoBandeira.src = logo;
+          logoBandeira.alt = bandeira;
+
+          logoInst.src = logo_inst;
+          logoInst.alt = instituicao;
+
+          nome.innerText = nomeImpresso;
+        }
+      }
+    );
   }
 
   function init() {
     if (inputInstituicao) {
       selectInstituicao();
-      showCartaoSelecionado();
     }
     showCartaoCadastrado();
   }

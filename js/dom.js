@@ -24,6 +24,15 @@ function Dom() {
     return JSON.parse(localStorage.getItem(key));
   }
 
+  function reloadLoader(mensagem, element) {
+    const loader = document.querySelector(element);
+
+    loader.classList.add("active");
+    loader.querySelector("p").innerText = mensagem;
+
+    setTimeout(() => location.reload(), 2000);
+  }
+
   return {
     el,
     els,
@@ -31,6 +40,7 @@ function Dom() {
     storage,
     setStorage,
     getStorage,
+    reloadLoader,
   };
 }
 
