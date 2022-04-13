@@ -1,11 +1,12 @@
 @import url("cadastro.css");
 @import url("loader.css");
+@import url("formulario.css");
 
 :root {
   --cor-primaria: #222c35;
   --cor-secundaria: #eef1f5;
-  --bg: #f9f8f6;
-  --bg2: #f9f8f6;
+  --bg: #f5f7fa;
+  --bg2: #f5f7fa;
   --bg3: #fff;
   --bg4: #f6eff7;
 
@@ -24,7 +25,7 @@
   --orange: #d3a66b;
   --bg-orange: #f8eadd;
 
-  --border-color: #e6e9ee;
+  --border-color: #ebeff3;
 
   --gap: 1.25rem;
   --filter: drop-shadow(0px 2px 2px rgba(0, 0, 0, 0.1));
@@ -69,11 +70,6 @@ body {
 .container {
   max-width: 1400px;
   margin: 0 auto;
-}
-
-.btn:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
 }
 
 .estrutura {
@@ -193,9 +189,8 @@ body {
   width: 50px;
   height: 50px;
   border-radius: 15px;
-  padding: 7px;
+  padding: 10px;
   margin-bottom: 1.25rem;
-  background-color: var(--cor-secundaria);
 }
 
 .icon svg {
@@ -204,6 +199,7 @@ body {
 }
 
 [data-dados="receitas"] .icon {
+  border: 2px solid var(--green);
   background-color: var(--bg-green);
 }
 
@@ -212,6 +208,7 @@ body {
 }
 
 [data-dados="despesas"] .icon {
+  border: 2px solid var(--red);
   background-color: var(--bg-red);
 }
 
@@ -220,6 +217,7 @@ body {
 }
 
 [data-dados="transacao"] .icon {
+  border: 2px solid var(--orange);
   background-color: var(--bg-orange);
 }
 
@@ -243,7 +241,6 @@ body {
   grid-column: 2;
   grid-row: 1;
   background-color: var(--bg3);
-  filter: var(--filter);
   padding: var(--gap);
   position: fixed;
   top: 0;
@@ -260,6 +257,11 @@ body {
   align-items: center;
   justify-content: space-between;
   position: relative;
+}
+
+.box-lista-cartao h3 span {
+  display: inline-block;
+  color: var(--cor);
 }
 
 .abrir-lista-cartao {
@@ -285,7 +287,7 @@ body {
   padding: var(--gap);
   visibility: hidden;
   opacity: 0;
-  transform: translate3d(0, -30px, 0);
+  transform: translate3d(0, 30px, 0);
   transition: 0.3s ease-in-out;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -443,4 +445,35 @@ body {
   border-radius: 15px;
   filter: var(--filter);
   padding: var(--gap);
+}
+
+[data-card] {
+  position: relative;
+}
+
+.box-card {
+  position: absolute;
+  top: 60px;
+  right: 0;
+  width: 350px;
+  height: 250px;
+  background-color: var(--bg3);
+  filter: var(--filter);
+  border-radius: 15px;
+  z-index: 1;
+  padding: var(--gap);
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.3s ease-in-out;
+  transform: translate3d(0, 30px, 0);
+}
+
+.box-card.active {
+  visibility: visible;
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+[data-card="transacao"] .box-card {
+  height: auto;
 }

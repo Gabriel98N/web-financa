@@ -11,6 +11,27 @@ function App() {
   const active = "active";
   const arrCartao = dom.getStorage("cartao");
 
+  function showBoxCard() {
+    const boxCard = dom.els(".box-card");
+    const abrirBox = dom.els(".abrir-box");
+
+    abrirBox.forEach((abrir, index) => {
+      abrir.addEventListener("click", (e) => {
+        e.preventDefault();
+        const box = boxCard[index];
+
+        box.classList.add(active);
+        outsideEvent(
+          box,
+          () => {
+            box.classList.remove(active);
+          },
+          ["click"]
+        );
+      });
+    });
+  }
+
   async function selectInstituicao() {
     loader.style.display = "flex";
 
@@ -91,11 +112,15 @@ function App() {
     });
 
     arrCartao.forEach(
-      ({ status, cor, bandeira, logo, nomeImpresso }, index) => {
+      ({ instituicao, status, cor, bandeira, logo, nomeImpresso }, index) => {
         if (status) {
           const logoBandeira = cartao.querySelector(".logo-bandeira img");
           const nome = cartao.querySelector("p");
           const cartaoAtivo = linkCartao[index];
+
+          dom.el(
+            ".box-lista-cartao h3"
+          ).innerHTML = `Meu cartão <span>(${instituicao})</span>`;
 
           cartao.style.backgroundColor = cor;
           logoBandeira.src = logo;
@@ -115,6 +140,7 @@ function App() {
       selectInstituicao();
     }
     showCartaoCadastrado();
+    showBoxCard();
   }
 
   return { init };

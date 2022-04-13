@@ -1,0 +1,66 @@
+[data-formulario] {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap);
+}
+
+[data-formulario] label {
+  margin-bottom: 5px;
+  font-weight: 500;
+  color: var(--cor2);
+  font-size: 0.845rem;
+  cursor: pointer;
+}
+
+[data-formulario] input,
+[data-formulario] select,
+.btn {
+  height: 50px;
+  width: 100%;
+  border-radius: 6px;
+  border: 2px solid var(--border-color);
+  outline: none;
+  font-size: 0.845rem;
+  font-family: "Poppins", "Inter", "Roboto", sans-serif;
+  padding: 0 1.25rem;
+  color: var(--cor);
+  background-color: var(--bg);
+  transition: border 0.3s;
+}
+
+[data-formulario] > div {
+  position: relative;
+}
+
+[data-formulario] input:focus,
+[data-formulario] select:focus {
+  border-color: var(--cor-primaria);
+}
+
+.column2-input {
+  display: flex;
+  align-items: center;
+  gap: var(--gap);
+}
+
+.btn {
+  background-color: var(--cor-primaria);
+  font-weight: bold;
+  text-transform: uppercase;
+  color: var(--cor4);
+  border: 0;
+  cursor: pointer;
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-form {
+  border: 0;
+  background-color: var(--cor-primaria);
+  font-weight: bold;
+  color: #fff;
+  cursor: pointer;
+}
