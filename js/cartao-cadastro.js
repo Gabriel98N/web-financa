@@ -57,12 +57,11 @@ function cartaoCadastro() {
         if (instituicao === selectInstituicao.value) {
           if (target.id == "instituicao" || target.id === "nome-impresso") {
             dom.el(".show-cartao").classList.add(active);
+            dom.el(".nome-instituicao").innerText = instituicao;
 
             cartao.style.backgroundColor = cor;
-
             cartao.querySelector(".logo-bandeira img").src = logo;
             cartao.querySelector(".logo-bandeira img").alt = bandeira;
-
             cartao.querySelector("p").innerText = nomeImpresso.value;
           }
         }

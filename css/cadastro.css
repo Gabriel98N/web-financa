@@ -87,6 +87,20 @@
 
 .show-cartao.active {
   display: flex;
+  align-items: center;
+  gap: 0.625rem;
+}
+
+.nome-instituicao {
+  text-align: center;
+  width: 50%;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.4;
+  padding: var(--gap);
+  background-color: var(--cor-secundaria);
+  border-radius: 6px;
+  color: var(--cor);
 }
 
 @keyframes animaCartao {
@@ -106,7 +120,7 @@
 }
 
 .show-cartao .cartao {
-  width: 200px;
+  width: 50%;
   height: 120px;
   transition: 0.3s;
 }
@@ -124,5 +138,13 @@
     flex-direction: column;
     top: 0;
     left: 0;
+  }
+  .show-cartao.active {
+    flex-direction: column;
+  }
+
+  .nome-instituicao,
+  .show-cartao .cartao {
+    width: 100%;
   }
 }
