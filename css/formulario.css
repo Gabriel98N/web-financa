@@ -58,6 +58,10 @@
   gap: var(--gap);
 }
 
+.column2-input > div {
+  width: 100%;
+}
+
 .btn {
   background-color: var(--cor-primaria);
   font-weight: 500;
