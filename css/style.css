@@ -4,8 +4,8 @@
 @import url("busca.css");
 
 :root {
-  --cor-primaria: #222c35;
-  --cor-secundaria: #eef3f8;
+  --cor-primaria: #00bcff;
+  --cor-secundaria: #daebf6;
   --bg: #f5f4f5;
   --bg2: #f5f4f5;
   --bg3: #fff;
@@ -351,7 +351,15 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: var(--cor-secundaria);
+}
+
+.qt-cartao {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 0.845rem;
+  color: var(--cor-primaria);
+  font-weight: bold;
 }
 
 .cartao-cadastrado {
