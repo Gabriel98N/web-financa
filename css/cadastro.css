@@ -4,8 +4,14 @@
   justify-content: center;
   background-color: var(--bg);
   padding: var(--gap);
-  min-height: calc(100vh - 80px);
+  min-height: calc(100vh - 83px);
   padding: var(--gap);
+}
+
+@media (max-width: 740px) {
+  .container-cadastro {
+    align-items: flex-start;
+  }
 }
 
 .lista-cadastro li a {
@@ -14,17 +20,6 @@
 
 .lista-cadastro li a:hover {
   color: var(--cor-primaria);
-}
-
-.container-cadastro:before {
-  content: "";
-  display: block;
-  width: 100%;
-  height: 7px;
-  position: absolute;
-  top: 0;
-  left: 0;
-  background-color: var(--cor-primaria);
 }
 
 .box-cadastro {
