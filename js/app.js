@@ -135,6 +135,8 @@ function App() {
     );
   }
 
+  function criarTransacao() {}
+
   function init() {
     if (inputInstituicao) {
       selectInstituicao();

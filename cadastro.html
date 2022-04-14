@@ -16,8 +16,8 @@
 <body>
 
 
-  <header class="header container">
-    <nav class="nav-header">
+  <header class="header">
+    <nav class="nav-header container">
       <h3>Cadastro</h3>
       <ul class="lista-header lista-cadastro">
         <li>
@@ -67,11 +67,13 @@
         </div>
         <div>
           <label for="nome-impresso">Nome impresso</label>
-          <input id="nome-impresso" required autocomplete="off" autofocus />
+          <input type="text" id="nome-impresso" required autocomplete="off" autofocus />
+          <span class="mensagem"></span>
         </div>
         <div>
           <label for="limite">Limite</label>
-          <input id="limite" required autocomplete="off" />
+          <input type="number" id="limite" required autocomplete="off" />
+          <span class="mensagem"></span>
         </div>
         <button type="button" class="btn btn-cadastrar" disabled>Cadastrar cartão</button>
       </form>

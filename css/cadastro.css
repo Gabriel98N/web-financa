@@ -1,17 +1,19 @@
-.lista-cadastro li a {
-  text-decoration: underline;
-}
-
-.lista-cadastro li a:hover {
-  color: var(--cor-primaria);
-}
-
 .container-cadastro {
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: var(--bg);
   padding: var(--gap);
+  min-height: calc(100vh - 80px);
+  padding: var(--gap);
+}
+
+.lista-cadastro li a {
+  text-decoration: underline;
+}
+
+.lista-cadastro li a:hover {
+  color: var(--cor-primaria);
 }
 
 .container-cadastro:before {
@@ -34,7 +36,7 @@
   margin: 0 auto;
   background-color: var(--bg3);
   filter: var(--filter);
-  border-radius: 15px;
+  border-radius: 6px;
   padding: var(--gap);
 }
 

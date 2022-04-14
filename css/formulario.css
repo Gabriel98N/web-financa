@@ -21,7 +21,7 @@
   border: 2px solid var(--border-color);
   outline: none;
   font-size: 0.845rem;
-  font-family: "Poppins", "Inter", "Roboto", sans-serif;
+  font-family: "Inter", "Roboto", sans-serif;
   padding: 0 1.25rem;
   color: var(--cor);
   background-color: var(--bg);
@@ -37,15 +37,31 @@
   border-color: var(--cor-primaria);
 }
 
+.mensagem {
+  color: var(--cor2);
+  font-size: 0.75rem;
+  line-height: 1.2;
+  color: var(--red);
+  margin-top: 5px;
+  background-color: var(--bg-red);
+  padding: 5px;
+  display: none;
+  border-radius: 6px;
+  font-weight: bold;
+}
+
+.mensagem.active {
+  display: block;
+}
+
 .column2-input {
   display: flex;
-  align-items: center;
   gap: var(--gap);
 }
 
 .btn {
   background-color: var(--cor-primaria);
-  font-weight: bold;
+  font-weight: 500;
   text-transform: uppercase;
   color: var(--cor4);
   border: 0;
