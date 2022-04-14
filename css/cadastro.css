@@ -35,6 +35,11 @@
   padding: var(--gap);
 }
 
+.box-cadastro form input,
+.box-cadastro form select {
+  background-color: var(--bg);
+}
+
 .box-cadastro h2 {
   font-size: 1.5rem;
   margin-bottom: var(--gap);

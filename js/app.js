@@ -49,6 +49,7 @@ function App() {
   async function showCartaoCadastrado() {
     const abrirLista = dom.el(".abrir-lista-cartao");
     const boxCartao = dom.el(".cartao-cadastrado");
+    const qtCartao = dom.el(".qt-cartao");
     const dados = await dadosJSON();
 
     if (abrirLista) {
@@ -78,10 +79,9 @@ function App() {
             `;
           }
         });
-
         boxCartao.append(div);
       });
-
+      qtCartao.innerText = arrCartao.length;
       cartaoAtivo();
     }
   }
