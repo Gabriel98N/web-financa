@@ -5,11 +5,21 @@ import outsideEvent from "./outside-event.js";
 const dom = Dom();
 
 function App() {
-  const loader = dom.el("[data-loader]");
   const inputInstituicao = dom.el("#instituicao");
   const cartao = dom.el(".area-cartao .cartao");
   const active = "active";
+
+  const boxListaCartao = dom.el(".cartao-cadastrado");
+  const abrirLista = dom.el(".abrir-lista-cartao");
   const arrCartao = dom.getStorage("cartao");
+  const arrTransacao = dom.storage("transacao");
+
+  const tipo_transacao = dom.el("#tipo-transacao");
+  const estabelecimento = dom.el("#estabelecimento");
+  const valor_transacao = dom.el("#valor-transacao");
+  const dia_transacao = dom.el("#dia-transacao");
+  const mes_transacao = dom.el("#mes-transacao");
+  const tabelaTransacao = dom.el(".tabela-transacao");
 
   function showBoxCard() {
     const boxCard = dom.els(".box-card");
@@ -32,117 +42,177 @@ function App() {
     });
   }
 
-  async function selectInstituicao() {
-    loader.style.display = "flex";
-
-    const dados = await dadosJSON();
-    dados.forEach(({ instituicao }) => {
-      const option = dom.create("option");
-      option.value = instituicao;
-      option.innerText = instituicao;
-      inputInstituicao.appendChild(option);
-    });
-
-    loader.style.display = "none";
-  }
-
-  async function showCartaoCadastrado() {
-    const abrirLista = dom.el(".abrir-lista-cartao");
-    const boxCartao = dom.el(".cartao-cadastrado");
-    const qtCartao = dom.el(".qt-cartao");
-    const dados = await dadosJSON();
-
+  function abrirListaCartao() {
     if (abrirLista) {
       abrirLista.addEventListener("click", (e) => {
         e.preventDefault();
-        boxCartao.classList.add(active);
+        boxListaCartao.classList.add(active);
         outsideEvent(
-          boxCartao,
+          boxListaCartao,
           () => {
-            boxCartao.classList.remove(active);
+            boxListaCartao.classList.remove(active);
           },
           ["click"]
         );
       });
     }
+  }
 
-    if (boxCartao && arrCartao) {
-      arrCartao.forEach(({ instituicao, nomeImpresso }, index) => {
+  async function selectCartao() {
+    if (inputInstituicao) {
+      const dados = await dadosJSON();
+      dados.forEach(({ instituicao }) => {
+        const option = dom.create("option");
+        option.value = instituicao;
+        option.innerText = instituicao;
+        inputInstituicao.appendChild(option);
+      });
+    }
+  }
+
+  function listaCartao() {
+    const vazioCartao = dom.el(".vazio");
+
+    if (arrCartao && vazioCartao) {
+      vazioCartao.style.display = "none";
+      arrCartao.forEach((item, index) => {
+        item.id = index;
+
         const div = dom.create("div");
         div.classList.add("cartao");
 
-        dados.forEach((dado) => {
-          if (dado.instituicao == instituicao) {
-            div.style.backgroundColor = dado.cor;
-            div.innerHTML = `
-              <a href="#" class="link-cartao" title=${nomeImpresso} id="${index}"></a>
-            `;
-          }
-        });
-        boxCartao.append(div);
+        div.style.backgroundColor = item.cor;
+        div.innerHTML = `
+          <a href="#" class="link-cartao"></a>
+        `;
+        boxListaCartao.appendChild(div);
       });
-      qtCartao.innerText = arrCartao.length;
-      cartaoAtivo();
+
+      dom.setStorage("cartao", arrCartao);
     }
   }
 
   function cartaoAtivo() {
-    const linkCartao = dom.els(".cartao-cadastrado .link-cartao");
-    const vazio = dom.el(".vazio");
+    const linksCartao = dom.els(".link-cartao");
 
-    if (linkCartao.length) vazio.style.display = "none";
-    else vazio.style.display = "flex";
-
-    linkCartao.forEach((item) => {
-      item.addEventListener("click", (e) => {
-        e.preventDefault();
-        arrCartao.forEach((dado, index) => {
-          if (item.id == index) {
-            dado.status = true;
-            dom.reloadLoader(
-              `Buscando dados do cartão <b>${dado.instituicao}</b>`,
-              '[data-loader="geral"]'
-            );
-          } else {
-            dado.status = false;
-          }
+    if (linksCartao.length) {
+      linksCartao.forEach((link, index) => {
+        link.addEventListener("click", (e) => {
+          e.preventDefault();
+          arrCartao.forEach((itemCartao) => {
+            if (index == itemCartao.id) {
+              itemCartao.status = true;
+              dom.reloadLoader(
+                `Buscando dados do cartão <b>${itemCartao.instituicao}</b>`,
+                '[data-loader="geral"]'
+              );
+            } else {
+              itemCartao.status = false;
+            }
+            dom.setStorage("cartao", arrCartao);
+          });
         });
-        dom.setStorage("cartao", arrCartao);
       });
-    });
 
-    arrCartao.forEach(
-      ({ instituicao, status, cor, bandeira, logo, nomeImpresso }, index) => {
-        if (status) {
-          const logoBandeira = cartao.querySelector(".logo-bandeira img");
-          const nome = cartao.querySelector("p");
-          const cartaoAtivo = linkCartao[index];
+      arrCartao.forEach((itemCartao, index) => {
+        const qtCartao = dom.el(".qt-cartao");
+        qtCartao.innerText = arrCartao.length;
 
-          dom.el(
-            ".box-lista-cartao h3"
-          ).innerHTML = `Meu cartão <span>(${instituicao})</span>`;
+        if (itemCartao.status) {
+          const imgBandeira = cartao.querySelector(".logo-bandeira img");
+          const imgCartao = cartao.querySelector(".box-logo-cartao img");
+          const nomeImpresso = cartao.querySelector("p");
 
-          cartao.style.backgroundColor = cor;
-          logoBandeira.src = logo;
-          logoBandeira.alt = bandeira;
-          nome.innerText = nomeImpresso;
+          const cartaoAtivo = linksCartao[index];
+
+          cartao.id = index;
+          cartao.style.backgroundColor = itemCartao.cor;
+
+          imgBandeira.src = itemCartao.logo_bandeira;
+          imgBandeira.alt = itemCartao.bandeira;
+
+          imgCartao.src = itemCartao.logo_inst;
+          imgCartao.alt = itemCartao.instituicao;
+
+          nomeImpresso.innerText = itemCartao.nomeImpresso;
 
           cartaoAtivo.innerHTML += `
-            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#fff"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg>  
+            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#fff"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg>
           `;
         }
-      }
-    );
+      });
+    }
   }
 
-  function criarTransacao() {}
+  function adicionarTransacao() {
+    const btnAdicionar = dom.el(".btn-adicionar");
+
+    if (cartao && btnAdicionar) {
+      const idCartao = cartao.id;
+      const { instituicao } = arrCartao[idCartao];
+      const ano = new Date().getFullYear();
+
+      btnAdicionar.addEventListener("click", (e) => {
+        e.preventDefault();
+        const data = `${dom.zeroAEsquerda(dia_transacao.value)} ${
+          mes_transacao.value
+        } ${ano}`;
+
+        arrTransacao.push({
+          tipo: tipo_transacao.value,
+          estabelecimento: estabelecimento.value,
+          valor: valor_transacao.value,
+          data: data,
+          id: idCartao,
+        });
+        dom.setStorage("transacao", arrTransacao);
+        dom.reloadLoader(
+          `Adicionando transação no cartão <b>${instituicao}</b>`,
+          '[data-loader="geral"]'
+        );
+      });
+    }
+  }
+
+  function criarTransacao() {
+    if (arrTransacao && cartao) {
+      const idCartao = cartao.id;
+      arrTransacao.forEach((transacao) => {
+        if (transacao.id == idCartao) {
+          const tr = dom.create("tr");
+          tr.classList.add("transacao");
+          a;
+          const estabelecimento = dom.firstLetter(transacao.estabelecimento);
+          const valor = dom.conversorMoeda(transacao.valor, "PT-BR", "BRL");
+
+          tr.innerHTML = `
+            <td>
+              <p class="estabelecimento">${estabelecimento}</p>
+              <p class="data">${transacao.data}</p>
+            </td>
+            <td class="valor"> 
+              <span class="sinal-${transacao.tipo}">
+                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M8.71 11.71l2.59 2.59c.39.39 1.02.39 1.41 0l2.59-2.59c.63-.63.18-1.71-.71-1.71H9.41c-.89 0-1.33 1.08-.7 1.71z"/></svg>
+              </span>
+              <p>
+                ${valor}
+              </p>
+            </td>
+          `;
+          tabelaTransacao.prepend(tr);
+        }
+      });
+    }
+  }
 
   function init() {
-    if (inputInstituicao) {
-      selectInstituicao();
-    }
-    showCartaoCadastrado();
+    selectCartao();
     showBoxCard();
+    abrirListaCartao();
+    listaCartao();
+    cartaoAtivo();
+    adicionarTransacao();
+    criarTransacao();
   }
 
   return { init };

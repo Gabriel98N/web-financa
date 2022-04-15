@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Montserrat:wght@400;500;700&family=Roboto:wght@400;500;700&family=Rubik:wght@400;500;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.min.css">
   <title>Painel</title>
 </head>
 
@@ -59,8 +59,8 @@
                       <span class="mensagem"></span>
                     </div>
                     <div>
-                      <label for="valor">Valor</label>
-                      <input type="number" id="valor" required autocomplete="off" autofocus />
+                      <label for="valor-transacao">Valor</label>
+                      <input type="number" id="valor-transacao" required autocomplete="off" autofocus />
                       <span class="mensagem"></span>
                     </div>
                   </div>
@@ -74,7 +74,21 @@
                     </div>
                     <div>
                       <label for="mes-transacao">Mês</label>
-                      <input id="mes-transacao" required autocomplete="off" />
+                      <select id="mes-transacao">
+                        <option value="" selected disabled></option>
+                        <option value="Janeiro">Janeiro</option>
+                        <option value="Fevereiro">Fevereiro</option>
+                        <option value="Março">Março</option>
+                        <option value="Abril">Abril</option>
+                        <option value="Maio">Maio</option>
+                        <option value="Junho">junho</option>
+                        <option value="Julho">Julho</option>
+                        <option value="Agosto">Agosto</option>
+                        <option value="Setembro">Setembro</option>
+                        <option value="Outubro">Outubro</option>
+                        <option value="Novembro">Novembro</option>
+                        <option value="Dezembro">Dezembro</option>
+                      </select>
                       <span class="mensagem"></span>
                     </div>
                   </div>
@@ -241,9 +255,9 @@
           </div>
           <div class="container-transacao">
             <h3>Transações</h3>
-            <div class="box-transacao">
-              <!-- Transação -->
-            </div>
+            <table class="tabela-transacao">
+
+            </table>
           </div>
         </div>
         <div class="area-cartao grid-column2">
@@ -269,7 +283,13 @@
                 <img src="/img/icons/master-card.png" alt="mastercard">
               </div>
             </div>
-            <p class="nome-impresso">Gabriel Souza</p>
+            <div class="box-contactless">
+              <img src="img/icons/contactless.svg" alt="">
+            </div>
+            <div class="box-logo-cartao">
+              <p class="nome-impresso">Gabriel Souza</p>
+              <img src="img/icons-banco/pan.svg" alt="Banco pan">
+            </div>
           </div>
           <a href="/cadastro.html" class="add-cartao">Novo cartão</a>
         </div>
@@ -293,7 +313,7 @@
     </div>
   </div>
 
-  <script type="module" src="js/script.js"></script>
+  <script src="js/index.js"></script>
 </body>
 
 </html>

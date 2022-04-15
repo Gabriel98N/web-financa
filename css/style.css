@@ -261,7 +261,6 @@ body {
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  border-radius: 6px;
   padding: var(--gap);
   position: relative;
 }
@@ -464,10 +463,23 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-direction: row-reverse;
+}
+
+.box-contactless {
+  margin-bottom: 1.25rem;
+}
+
+.box-logo-cartao {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+  align-items: center;
+  gap: var(--gap);
 }
 
 .logo-bandeira,
-.logo-instituicao {
+.box-logo-cartao img {
   width: 50px;
 }
 
@@ -478,8 +490,8 @@ body {
 
 .cartao p {
   color: #fff;
-  font-weight: 500;
   text-transform: uppercase;
+  font-size: 0.845rem;
 }
 
 .add-cartao {
@@ -554,6 +566,50 @@ body {
   border-radius: 6px;
   filter: var(--filter);
   padding: var(--gap);
+}
+
+.tabela-transacao {
+  margin-top: var(--gap);
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.tabela-transacao tr td {
+  font-size: 1rem;
+  line-height: 1.2;
+  padding: var(--gap) 0;
+  color: var(--cor-2);
+}
+
+.tabela-transacao tr + tr {
+  border-top: 1px solid var(--border-color);
+}
+
+.tabela-transacao .estabelecimento {
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.tabela-transacao .data {
+  color: var(--cor);
+}
+
+.tabela-transacao .valor {
+  text-align: right;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.625rem;
+}
+
+.tabela-transacao .sinal-despesas svg {
+  fill: var(--red);
+}
+
+.tabela-transacao .sinal-receitas svg {
+  fill: var(--green);
+  transform: rotate(180deg);
 }
 
 [data-card] {

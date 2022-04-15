@@ -33,6 +33,21 @@ function Dom() {
     setTimeout(() => location.reload(), 2000);
   }
 
+  function zeroAEsquerda(num) {
+    return num < 10 ? `0${num}` : num;
+  }
+
+  function conversorMoeda(numero, lang, type) {
+    return Number(numero).toLocaleString(lang, {
+      style: "currency",
+      currency: type,
+    });
+  }
+
+  function firstLetter(text) {
+    return `${text.charAt(0).toUpperCase()}${text.substr(1).toLowerCase()}`;
+  }
+
   return {
     el,
     els,
@@ -41,6 +56,9 @@ function Dom() {
     setStorage,
     getStorage,
     reloadLoader,
+    zeroAEsquerda,
+    conversorMoeda,
+    firstLetter,
   };
 }
 

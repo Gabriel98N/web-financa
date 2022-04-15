@@ -32,7 +32,8 @@ function cartaoCadastro() {
               limite: limite.value,
               cor: dado.cor,
               bandeira: dado.bandeira,
-              logo: dado.logo,
+              logo_bandeira: dado.logo,
+              logo_inst: dado.logo_inst,
             });
             dom.setStorage("cartao", arrCartao);
           }

@@ -89,5 +89,12 @@
     "logo": "img/icons/master-card.svg",
     "cor": "#059457",
     "logo_inst": "img/icons-banco/original.svg"
+  },
+  {
+    "instituicao": "Meliuz",
+    "bandeira": "Master card",
+    "logo": "img/icons/master-card.svg",
+    "cor": "#ff3859",
+    "logo_inst": "img/icons-banco/meliuz.svg"
   }
 ]

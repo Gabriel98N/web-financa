@@ -92,7 +92,7 @@
   transition: 0.3s;
 }
 
-.show-cartao .cartao img {
+.show-cartao .cartao .logo-bandeira {
   width: 30px;
 }
 
