@@ -4,29 +4,27 @@
 @import url("busca.css");
 
 :root {
-  --cor-primaria: #00bcff;
-  --cor-secundaria: #daebf6;
-  --bg: #f5f4f5;
-  --bg2: #f5f4f5;
-  --bg3: #fff;
-  --bg4: #f6eff7;
+  --cor-primaria: #723ceb;
+  --cor-secundaria: #1b1627;
+  --bg: #161619;
+  --bg3: #1d1d22;
+  --bg4: #26262b;
 
-  --cor: #737679;
-  --cor2: #2e2e2e;
+  --cor: #6d6c72;
+  --cor2: #fff;
   --cor3: #2e2e2e;
-  --cor4: #fdfdfd;
+  --cor4: #6d6c72;
   --cor5: #1c242b;
 
-  --red: #d3786b;
-  --bg-red: #ffe0dc;
+  --red: #fe6263;
 
-  --green: #4ab085;
-  --bg-green: #dcfff0;
+  --blue: #517cfd;
 
-  --orange: #d3a66b;
-  --bg-orange: #f8eadd;
+  --orange: #f54d18;
 
-  --border-color: #e9e7e9;
+  --green: #4fc068;
+
+  --border-color: #272828;
 
   --gap: 1.25rem;
   --filter: drop-shadow(0px 2px 2px rgba(0, 0, 0, 0.1));
@@ -119,7 +117,22 @@ body {
 }
 
 .lista-header li a {
+  color: var(--cor);
+}
+
+.add-transacao {
   color: var(--cor1);
+  border: 0;
+  font-size: 1rem;
+  font-family: "Rubik", "Roboto", sans-serif;
+  color: #fff;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+.add-transacao:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 
 .icon-header {
@@ -169,7 +182,7 @@ body {
 }
 
 .lista-aside li svg {
-  fill: var(--cor4);
+  fill: var(--cor2);
 }
 
 @media (max-width: 1200px) {
@@ -216,7 +229,7 @@ body {
 }
 
 .area-painel h1 {
-  font-size: 2rem;
+  font-size: 1.5rem;
   margin: var(--gap) 0;
   grid-column: 1 / -1;
 }
@@ -249,10 +262,6 @@ body {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 0.625rem;
-  background-color: var(--bg3);
-  padding: var(--gap);
-  border-radius: 6px;
-  filter: var(--filter);
 }
 
 .dados {
@@ -263,11 +272,9 @@ body {
   align-items: center;
   padding: var(--gap);
   position: relative;
-}
-
-.dados:nth-of-type(2) {
-  border-left: 1px solid var(--border-color);
-  border-right: 1px solid var(--border-color);
+  background-color: var(--bg3);
+  border-radius: 6px;
+  filter: var(--filter);
 }
 
 .icon {
@@ -281,33 +288,19 @@ body {
 .icon svg {
   width: 100%;
   height: 100%;
+  fill: var(--bg3);
 }
 
 [data-dados="receitas"] .icon {
-  border: 2px solid var(--green);
-  background-color: var(--bg-green);
-}
-
-[data-dados="receitas"] .icon svg {
-  fill: var(--green);
+  background-color: var(--blue);
 }
 
 [data-dados="despesas"] .icon {
-  border: 2px solid var(--red);
-  background-color: var(--bg-red);
-}
-
-[data-dados="despesas"] .icon svg {
-  fill: var(--red);
+  background-color: var(--red);
 }
 
 [data-dados="transacao"] .icon {
-  border: 2px solid var(--orange);
-  background-color: var(--bg-orange);
-}
-
-[data-dados="transacao"] .icon svg {
-  fill: var(--orange);
+  background-color: var(--orange);
 }
 
 .dados h3 {
@@ -320,6 +313,7 @@ body {
   line-height: 29px;
   margin-top: 5px;
   font-weight: bold;
+  color: var(--cor2);
 }
 
 .area-cartao {
@@ -352,26 +346,27 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: var(--bg);
 }
 
 .qt-cartao {
   position: absolute;
-  top: 0;
-  right: 0;
-  font-size: 0.845rem;
+  top: 7px;
+  right: 7px;
+  font-size: 0.75rem;
   color: var(--cor-primaria);
   font-weight: bold;
 }
 
 .cartao-cadastrado {
   position: absolute;
-  top: 50px;
+  top: 60px;
   right: 0;
   width: 100%;
   height: 250px;
   border-radius: 6px;
   z-index: 1;
-  background-color: var(--bg3);
+  background-color: var(--bg);
   filter: var(--filter);
   padding: var(--gap);
   visibility: hidden;
@@ -438,12 +433,6 @@ body {
 
   .container-dados {
     grid-template-columns: 1fr;
-  }
-
-  .dados:nth-of-type(2) {
-    border: 0;
-    border-top: 1px solid var(--border-color);
-    border-bottom: 1px solid var(--border-color);
   }
 }
 
@@ -568,30 +557,40 @@ body {
   padding: var(--gap);
 }
 
+.container-transacao h3 {
+  color: var(--cor2);
+}
+
 .tabela-transacao {
   margin-top: var(--gap);
-  width: 100%;
-  border-collapse: collapse;
 }
 
-.tabela-transacao tr td {
-  font-size: 1rem;
-  line-height: 1.2;
+.transacao {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   padding: var(--gap) 0;
-  color: var(--cor-2);
+  color: var(--cor2);
 }
 
-.tabela-transacao tr + tr {
+.transacao + .transacao {
   border-top: 1px solid var(--border-color);
 }
 
+.box-estabelecimento {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
 .tabela-transacao .estabelecimento {
-  margin-bottom: 5px;
-  font-weight: bold;
+  line-height: 1.5;
+  display: flex;
 }
 
 .tabela-transacao .data {
   color: var(--cor);
+  font-size: 0.75rem;
 }
 
 .tabela-transacao .valor {
@@ -599,17 +598,25 @@ body {
   font-weight: bold;
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: center;
   gap: 0.625rem;
+  font-size: 1rem;
 }
 
-.tabela-transacao .sinal-despesas svg {
-  fill: var(--red);
+.valor span {
+  width: 15px;
+  height: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.tabela-transacao .sinal-receitas svg {
-  fill: var(--green);
-  transform: rotate(180deg);
+.arrow_drop_down {
+  color: var(--cor);
+}
+
+.arrow_drop_up {
+  color: var(--green);
 }
 
 [data-card] {
@@ -622,7 +629,7 @@ body {
   right: 0;
   width: 350px;
   height: 250px;
-  background-color: var(--bg3);
+  background-color: var(--bg4);
   filter: var(--filter);
   border-radius: 6px;
   z-index: 1;

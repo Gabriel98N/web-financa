@@ -54,11 +54,11 @@ function cartaoCadastro() {
     const handleSelectInst = (e) => {
       const target = e.target;
 
-      dados.forEach(({ instituicao, logo, bandeira, cor }) => {
+      dados.forEach(({ instituicao, logo, bandeira, cor, logo_inst }) => {
         if (instituicao === selectInstituicao.value) {
           if (target.id == "instituicao" || target.id === "nome-impresso") {
             dom.el(".show-cartao").classList.add(active);
-            dom.el(".nome-instituicao").innerText = instituicao;
+            dom.el(".img-instituicao img").src = logo_inst;
 
             cartao.style.backgroundColor = cor;
             cartao.querySelector(".logo-bandeira img").src = logo;

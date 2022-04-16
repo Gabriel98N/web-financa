@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Montserrat:wght@400;500;700&family=Roboto:wght@400;500;700&family=Rubik:wght@400;500;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.min.css">
+  <link rel="stylesheet" href="css/style.css">
   <title>Painel</title>
 </head>
 
@@ -30,16 +30,15 @@
     <p></p>
   </div>
 
-
   <div class="estrutura">
     <header class="header">
-      <nav class="nav-header container">
+      <nav class="nav-header">
         <div class="area-pesquisa">
           <input type="text" id="pesquisa" placeholder="Buscar...">
         </div>
         <ul class="lista-header">
           <li data-card="transacao">
-            <a href="#" class="add-transacao abrir-box">Adicionar</a>
+            <button type="button" class="add-transacao abrir-box" disabled>Adicionar</button>
             <div class="box-card">
               <form data-formulario="transacao">
                 <div>
@@ -74,7 +73,7 @@
                     </div>
                     <div>
                       <label for="mes-transacao">Mês</label>
-                      <select id="mes-transacao">
+                      <select id="mes-transacao" required>
                         <option value="" selected disabled></option>
                         <option value="Janeiro">Janeiro</option>
                         <option value="Fevereiro">Fevereiro</option>
@@ -123,7 +122,7 @@
       </nav>
     </header>
     <div class="content">
-      <div class="area-painel container">
+      <div class="area-painel">
         <h1>Dashboard</h1>
         <div class="container-info grid-column1">
           <div class="container-dados">
@@ -255,9 +254,9 @@
           </div>
           <div class="container-transacao">
             <h3>Transações</h3>
-            <table class="tabela-transacao">
-
-            </table>
+            <div class="tabela-transacao">
+              <!-- transacao -->
+            </div>
           </div>
         </div>
         <div class="area-cartao grid-column2">
@@ -266,7 +265,7 @@
             <div class="lista-cartao">
               <span class="qt-cartao">0</span>
               <a title="lista de cartões" href="#" class="abrir-lista-cartao">
-                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#222C35">
+                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#fff">
                   <path d="M0 0h24v24H0V0z" fill="none" />
                   <path d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z" />
                 </svg>

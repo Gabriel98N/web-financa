@@ -14,6 +14,7 @@ function App() {
   const arrCartao = dom.getStorage("cartao");
   const arrTransacao = dom.storage("transacao");
 
+  const btnAdicionar = dom.el(".add-transacao");
   const tipo_transacao = dom.el("#tipo-transacao");
   const estabelecimento = dom.el("#estabelecimento");
   const valor_transacao = dom.el("#valor-transacao");
@@ -123,6 +124,7 @@ function App() {
           const imgCartao = cartao.querySelector(".box-logo-cartao img");
           const nomeImpresso = cartao.querySelector("p");
 
+          btnAdicionar.disabled = false;
           const cartaoAtivo = linksCartao[index];
 
           cartao.id = index;
@@ -145,14 +147,14 @@ function App() {
   }
 
   function adicionarTransacao() {
-    const btnAdicionar = dom.el(".btn-adicionar");
+    const addTransacao = dom.el(".btn-adicionar");
 
-    if (cartao && btnAdicionar) {
+    if (arrCartao && addTransacao) {
       const idCartao = cartao.id;
       const { instituicao } = arrCartao[idCartao];
       const ano = new Date().getFullYear();
 
-      btnAdicionar.addEventListener("click", (e) => {
+      addTransacao.addEventListener("click", (e) => {
         e.preventDefault();
         const data = `${dom.zeroAEsquerda(dia_transacao.value)} ${
           mes_transacao.value
@@ -179,27 +181,31 @@ function App() {
       const idCartao = cartao.id;
       arrTransacao.forEach((transacao) => {
         if (transacao.id == idCartao) {
-          const tr = dom.create("tr");
-          tr.classList.add("transacao");
-          a;
+          const div = dom.create("div");
+          div.classList.add("transacao");
+
           const estabelecimento = dom.firstLetter(transacao.estabelecimento);
           const valor = dom.conversorMoeda(transacao.valor, "PT-BR", "BRL");
+          const sinal =
+            transacao.tipo == "despesas" ? "arrow_drop_down" : "arrow_drop_up";
 
-          tr.innerHTML = `
-            <td>
-              <p class="estabelecimento">${estabelecimento}</p>
-              <p class="data">${transacao.data}</p>
-            </td>
-            <td class="valor"> 
-              <span class="sinal-${transacao.tipo}">
-                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M8.71 11.71l2.59 2.59c.39.39 1.02.39 1.41 0l2.59-2.59c.63-.63.18-1.71-.71-1.71H9.41c-.89 0-1.33 1.08-.7 1.71z"/></svg>
-              </span>
-              <p>
-                ${valor}
-              </p>
-            </td>
+          div.innerHTML = `
+            <div class="box-estabelecimento">
+              <div>
+                <div class="estabelecimento">
+                  <p>${estabelecimento}</p>
+                </div>
+                <div>
+                  <p class="data">${transacao.data}</p>
+                </div>
+              </div>
+            </div>
+            <div class="valor">
+              <span class="material-icons ${sinal}">${sinal}</span>
+              <p>${valor}</p>
+            </div>
           `;
-          tabelaTransacao.prepend(tr);
+          tabelaTransacao.prepend(div);
         }
       });
     }

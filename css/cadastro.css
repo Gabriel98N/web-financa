@@ -1,10 +1,9 @@
 .container-cadastro {
+  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: var(--bg);
-  padding: var(--gap);
-  min-height: calc(100vh - 83px);
   padding: var(--gap);
 }
 
@@ -14,35 +13,57 @@
   }
 }
 
-.lista-cadastro li a {
-  text-decoration: underline;
+.voltar-painel {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  padding: var(--gap) 0;
 }
 
-.lista-cadastro li a:hover {
+.voltar-painel,
+.voltar-painel svg {
+  color: var(--cor);
+  fill: currentColor;
+}
+
+.voltar-painel:hover,
+.voltar-painel:hover svg {
   color: var(--cor-primaria);
+  fill: currentColor;
 }
 
 .box-cadastro {
   width: 100%;
 }
 
+.box-cadastro {
+  max-width: 960px;
+  display: flex;
+  align-items: center;
+  gap: var(--gap);
+}
+
+.box-cadastro h2 {
+  width: 100%;
+  flex: 1;
+  font-size: 3rem;
+  line-height: 60px;
+  text-align: center;
+}
+
 .box-cadastro form {
-  max-width: 450px;
-  margin: 0 auto;
+  width: 100%;
+  flex: 1;
   background-color: var(--bg3);
   filter: var(--filter);
   border-radius: 6px;
-  padding: var(--gap);
+  padding: 2.5rem;
 }
 
 .box-cadastro form input,
 .box-cadastro form select {
   background-color: var(--bg);
-}
-
-.box-cadastro h2 {
-  font-size: 1.5rem;
-  margin-bottom: var(--gap);
+  border-color: var(--bg);
 }
 
 .show-cartao {
@@ -54,20 +75,7 @@
 
 .show-cartao.active {
   display: flex;
-  align-items: flex-start;
   gap: 0.625rem;
-}
-
-.nome-instituicao {
-  text-align: center;
-  width: 50%;
-  font-size: 1rem;
-  font-weight: 700;
-  line-height: 1.4;
-  padding: var(--gap);
-  background-color: var(--bg);
-  border-radius: 6px;
-  color: var(--cor);
 }
 
 @keyframes animaCartao {
@@ -87,9 +95,11 @@
 }
 
 .show-cartao .cartao {
-  width: 50%;
-  height: 120px;
+  width: 40%;
+  height: 80px;
+  align-self: flex-start;
   transition: 0.3s;
+  padding: 0.625rem;
 }
 
 .show-cartao .cartao .logo-bandeira {
@@ -100,18 +110,37 @@
   font-size: 0.75rem;
 }
 
-@media (max-width: 1200px) {
+.img-instituicao {
+  width: 60%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--bg);
+  border-radius: 6px;
+  padding: var(--gap);
+}
+
+.img-instituicao img {
+  width: 60px;
+}
+
+@media (max-width: 740px) {
   .box-cadastro {
-    flex-direction: column;
-    top: 0;
-    left: 0;
-  }
-  .show-cartao.active {
     flex-direction: column;
   }
 
-  .nome-instituicao,
+  .box-cadastro h2 {
+    font-size: 1.5rem;
+    line-height: 1.5;
+  }
+
+  .box-cadastro form {
+    padding: var(--gap);
+  }
+
+  .img-instituicao,
   .show-cartao .cartao {
     width: 100%;
+    height: 80px;
   }
 }

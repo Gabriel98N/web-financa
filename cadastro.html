@@ -16,16 +16,6 @@
 <body>
 
 
-  <header class="header">
-    <nav class="nav-header container">
-      <h3>Cadastro</h3>
-      <ul class="lista-header lista-cadastro">
-        <li>
-          <a href="/index.html">Painel</a>
-        </li>
-      </ul>
-    </nav>
-  </header>
 
   <div class="container-cadastro">
 
@@ -46,8 +36,8 @@
     </div>
 
     <div class="box-cadastro">
+      <h2>Cadastrar cartão</h2>
       <form data-formulario="cadastro-cartao">
-        <h2>Cadastrar cartão</h2>
         <div>
           <label for="instituicao">Instituição</label>
           <select id="instituicao" required autocomplete="off">
@@ -62,7 +52,9 @@
               </div>
               <p class="nome-impresso">Gabriel Souza</p>
             </div>
-            <p class="nome-instituicao">PicPay</p>
+            <div class="img-instituicao">
+              <img src="" alt="">
+            </div>
           </div>
         </div>
         <div>
@@ -76,6 +68,12 @@
           <span class="mensagem"></span>
         </div>
         <button type="button" class="btn btn-cadastrar" disabled>Cadastrar cartão</button>
+        <a href="/index.html" class="voltar-painel">
+          <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 448 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+            <path d="M257.5 445.1l-22.2 22.2c-9.4 9.4-24.6 9.4-33.9 0L7 273c-9.4-9.4-9.4-24.6 0-33.9L201.4 44.7c9.4-9.4 24.6-9.4 33.9 0l22.2 22.2c9.5 9.5 9.3 25-.4 34.3L136.6 216H424c13.3 0 24 10.7 24 24v32c0 13.3-10.7 24-24 24H136.6l120.5 114.8c9.8 9.3 10 24.8.4 34.3z"></path>
+          </svg>
+          Voltar para painel
+        </a>
       </form>
     </div>
   </div>
