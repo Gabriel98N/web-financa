@@ -38,7 +38,7 @@ function Validacao(button, inputs) {
       const code = e.which;
       const stylesInput = {
         borderErro() {
-          input.style.borderColor = "#d3786b";
+          input.style.borderColor = "#fe6263";
         },
         borderSucess() {
           input.style.borderColor = "";

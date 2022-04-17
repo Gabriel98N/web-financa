@@ -43,12 +43,21 @@
   gap: var(--gap);
 }
 
-.box-cadastro h2 {
+.box-titulo-cadastro {
   width: 100%;
   flex: 1;
+  line-height: 60px;
+}
+
+.box-titulo-cadastro svg {
+  width: 100px;
+  height: 100px;
+  fill: var(--cor-primaria);
+}
+
+.box-titulo-cadastro h2 {
   font-size: 3rem;
   line-height: 60px;
-  text-align: center;
 }
 
 .box-cadastro form {
@@ -129,7 +138,12 @@
     flex-direction: column;
   }
 
-  .box-cadastro h2 {
+  .box-titulo-cadastro svg {
+    width: 50px;
+    height: 50px;
+  }
+
+  .box-titulo-cadastro h2 {
     font-size: 1.5rem;
     line-height: 1.5;
   }
