@@ -68,11 +68,26 @@ function Validacao(button, inputs) {
           mensagem.classList.add(active);
           mensagem.innerHTML = "Por favor, digite apenas números.";
           stylesInput.borderErro();
-          return;
+        } else {
+          mensagem.innerHTML = "";
+          mensagem.classList.remove(active);
+          stylesInput.borderSucess();
         }
-        mensagem.innerHTML = "";
-        mensagem.classList.remove(active);
-        stylesInput.borderSucess();
+      }
+    });
+
+    input.addEventListener("input", (e) => {
+      const target = e.target;
+      if (Math.sign(target.value) == "-1" || target.value == "0") {
+        target.value = "";
+        btn.disabled = true;
+      }
+
+      if (target.id == "dia-transacao") {
+        if (target.value.length > 2) {
+          target.value = "";
+          btn.disabled = true;
+        }
       }
     });
   });
