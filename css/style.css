@@ -1,7 +1,7 @@
 @import url("cadastro.css");
 @import url("loader.css");
 @import url("formulario.css");
-@import url("busca.css");
+@import url("aviso.css");
 
 :root {
   --cor-primaria: #723ceb;
@@ -92,7 +92,7 @@ body {
 
 .header {
   padding: 0 2.5rem;
-  background-color: var(--bg3);
+  background-color: var(--bg);
   z-index: 100;
   border-top: 3px solid var(--cor-primaria);
   position: sticky;
@@ -101,10 +101,10 @@ body {
 }
 
 .nav-header {
-  height: 80px;
+  height: 70px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
 }
 
 .lista-header {
@@ -151,7 +151,7 @@ body {
   color: #fff;
   padding: 0.75rem 1.5rem;
   font-size: 0.845rem;
-  border-radius: 6px;
+  border-radius: 3px;
   font-weight: 500;
 }
 
@@ -161,7 +161,7 @@ body {
   left: 0;
   width: 100px;
   height: 100%;
-  background-color: var(--bg3);
+  background-color: var(--bg);
   border-top: 3px solid var(--cor-primaria);
   z-index: 100;
 }
@@ -182,7 +182,7 @@ body {
 .lista-aside li span {
   width: 40px;
   height: 40px;
-  border-radius: 6px;
+  border-radius: 3px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -218,7 +218,7 @@ body {
 }
 
 .content {
-  padding: var(--gap) 2.5rem;
+  padding: 0 2.5rem var(--gap) 0;
 }
 
 @media (max-width: 740px) {
@@ -233,7 +233,7 @@ body {
 /*  Area painel */
 .area-painel {
   display: grid;
-  grid-template-columns: 1fr 300px;
+  grid-template-columns: 1fr 250px;
   gap: 0.625rem;
 }
 
@@ -302,7 +302,7 @@ body {
   border-radius: 50%;
   padding: 10px;
   margin-bottom: 1.25rem;
-  background-color: var(--bg4);
+  background-color: var(--bg);
 }
 
 .icon svg {
@@ -328,8 +328,6 @@ body {
   display: flex;
   flex-direction: column;
   gap: var(--gap);
-  background-color: var(--bg3);
-  padding: var(--gap);
   border-radius: 6px;
   align-self: flex-start;
   filter: var(--filter);
@@ -340,6 +338,10 @@ body {
   align-items: center;
   justify-content: space-between;
   position: relative;
+  background-color: var(--bg3);
+  height: 70px;
+  border-radius: 6px;
+  padding: 0 var(--gap);
 }
 
 .box-lista-cartao h3 span {
@@ -359,8 +361,8 @@ body {
 
 .qt-cartao {
   position: absolute;
-  top: 7px;
-  right: 7px;
+  top: 15px;
+  right: 30px;
   font-size: 0.75rem;
   color: var(--cor-primaria);
   font-weight: bold;
@@ -368,7 +370,7 @@ body {
 
 .cartao-cadastrado {
   position: absolute;
-  top: 60px;
+  top: 70px;
   right: 0;
   width: 100%;
   height: 250px;
@@ -438,6 +440,9 @@ body {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: var(--gap) 0;
+  padding: var(--gap);
+  background-color: var(--bg3);
+  border-radius: 6px;
 }
 
 .box-limite:nth-of-type(2) {
@@ -454,6 +459,7 @@ body {
 .box-limite p {
   color: var(--cor2);
   font-size: 0.845rem;
+  font-weight: 500;
 }
 
 .progresso-limite {
@@ -467,8 +473,7 @@ body {
 .liquido-limite {
   width: 0%;
   height: 100%;
-  background: linear-gradient(145deg, #ff00dd, var(--cor-primaria));
-  border-radius: 6px;
+  background: var(--cor-primaria);
 }
 
 @media (max-width: 740px) {
@@ -532,7 +537,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 6px;
+  border-radius: 3px;
 }
 
 .container-transacao {
@@ -545,6 +550,7 @@ body {
 
 .container-transacao h3 {
   color: var(--cor2);
+  font-weight: bold;
 }
 
 .tabela-transacao {
@@ -581,7 +587,7 @@ body {
 
 .tabela-transacao .valor {
   text-align: right;
-  font-weight: bold;
+  font-weight: 500;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -612,7 +618,7 @@ body {
 
 [data-box] {
   position: absolute;
-  top: 50px;
+  top: 70px;
   right: 0;
   width: 350px;
   height: 250px;
@@ -633,6 +639,17 @@ body {
   transform: translate3d(0, 0, 0);
 }
 
+[data-box]:before {
+  content: "";
+  position: absolute;
+  top: -14px;
+  right: 15px;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-top: 7px solid transparent;
+  border-bottom: 7px solid var(--bg4);
+}
+
 [data-box="transacao"] {
   height: auto;
 }
@@ -651,8 +668,7 @@ body {
     border-radius: 0;
   }
 
-  [data-box="pagamento"] {
-    position: absolute;
-    top: 214px;
+  [data-box]:before {
+    display: none;
   }
 }

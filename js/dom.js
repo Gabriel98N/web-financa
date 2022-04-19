@@ -57,6 +57,25 @@ function Dom() {
     );
   }
 
+  function cardAviso(texto) {
+    const containerAviso = document.querySelector(".container-aviso");
+
+    const div = document.createElement("div");
+    div.classList.add("aviso");
+    div.innerHTML = `<p>${texto}</p>`;
+    containerAviso.prepend(div);
+
+    setTimeout(() => {
+      div.classList.add("active");
+    });
+
+    document.querySelectorAll(".aviso").forEach((aviso) => {
+      setTimeout(() => {
+        aviso.classList.remove("active");
+      }, 2000);
+    });
+  }
+
   return {
     el,
     els,
@@ -69,6 +88,7 @@ function Dom() {
     conversorMoeda,
     firstLetter,
     converterValor,
+    cardAviso,
   };
 }
 

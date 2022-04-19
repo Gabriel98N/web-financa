@@ -36,6 +36,7 @@ function Transacao() {
         `Adicionando transação no cartão <b>${instituicao}</b>`,
         '[data-loader="geral"]'
       );
+      dom.cardAviso("Transação adicionado com sucesso");
     };
 
     if (arrCartao && cartao) {

@@ -1,0 +1,50 @@
+.container-aviso {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 300px;
+  height: 100%;
+  pointer-events: none;
+  z-index: 100000;
+  overflow: hidden;
+  padding: var(--gap);
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+}
+
+.aviso {
+  pointer-events: initial;
+  padding: var(--gap);
+  background-color: var(--cor-primaria);
+  border-radius: 4px;
+  color: #fff;
+  font-size: 0.845rem;
+  transform: translate3d(30px, 0, 0);
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.3s ease-in-out;
+  position: relative;
+  filter: var(--filter);
+}
+
+.aviso.active {
+  transform: translate3d(0, 0, 0);
+  visibility: visible;
+  opacity: 1;
+}
+
+.aviso button {
+  width: 15px;
+  height: 15px;
+  position: absolute;
+  top: 7px;
+  right: 7px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: 0;
+  outline: none;
+  cursor: pointer;
+}

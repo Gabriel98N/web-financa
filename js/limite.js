@@ -9,7 +9,7 @@ function limiteCartao() {
   function limite() {
     if (cartao && arrCartao) {
       const idCartao = cartao.id;
-      const { limite } = arrCartao[idCartao];
+      const { limite, cor } = arrCartao[idCartao];
       const despesas = dom.converterValor(
         dom.el('[data-transacao="despesas"]')
       );
@@ -40,6 +40,11 @@ function limiteCartao() {
           duration: 1000,
           fill: "forwards",
         });
+
+      dom.el(".liquido-limite").style.backgroundColor = cor;
+      dom
+        .els(".container-dados .icon svg")
+        .forEach((svg) => (svg.style.fill = cor));
     }
   }
 

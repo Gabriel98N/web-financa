@@ -36,9 +36,14 @@ function cartaoCadastro() {
               logo_inst: dado.logo_inst,
             });
             dom.setStorage("cartao", arrCartao);
+            dom.cardAviso(
+              `Cartão <b>${dado.instituicao}</b> criado com sucesso`
+            );
           }
         });
-        location.reload();
+        setTimeout(() => {
+          location.reload();
+        }, 2000);
       } catch (e) {
         console.log("Não foi possível concluir o cadastro");
         console.log(e);
