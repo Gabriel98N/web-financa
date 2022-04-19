@@ -57,21 +57,25 @@ function Validacao(button, inputs) {
           mensagem.classList.add(active);
           mensagem.innerHTML = "Por favor, digite apenas letras.";
           stylesInput.borderErro();
+          btn.disabled = true;
           return;
         }
         mensagem.innerHTML = "";
         mensagem.classList.remove(active);
         stylesInput.borderSucess();
+        btn.disabled = false;
       } else if (typeInput == "number") {
         if (!(code >= 48 && code <= 57)) {
           e.preventDefault();
           mensagem.classList.add(active);
           mensagem.innerHTML = "Por favor, digite apenas números.";
           stylesInput.borderErro();
+          btn.disabled = true;
         } else {
           mensagem.innerHTML = "";
           mensagem.classList.remove(active);
           stylesInput.borderSucess();
+          btn.disabled = false;
         }
       }
     });
