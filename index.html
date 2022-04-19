@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Montserrat:wght@400;500;700&family=Roboto:wght@400;500;700&family=Rubik:wght@400;500;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.min.css">
   <title>Painel</title>
 </head>
 
@@ -136,7 +136,7 @@
               <h3>Receitas</h3>
               <p data-transacao="receitas">R$ 0,00</p>
             </div>
-            <div class="dados" data-dados="despesas" data-card>
+            <div class="dados" data-dados="despesas">
               <span class="icon">
                 <svg xmlns="http://www.w3.org/2000/svg" height="32px" viewBox="0 0 24 24" width="32px" fill="#222C35">
                   <path d="M0 0h24v24H0V0z" fill="none" />
@@ -145,12 +145,6 @@
               </span>
               <h3>Despesas</h3>
               <p data-transacao="despesas">R$ 0,00</p>
-              <button type="button" class="btn-pagar abrir-box">Pagar</button>
-              <div data-box="pagamento" class="box-pagamento">
-                <input type="number" id="pagamento" placeholder="Quanto deseja pagar?" required>
-                <span class="mensagem"></span>
-                <button type="button" class="btn btn-confirmar" disabled>Confirmar pagamento</button>
-              </div>
             </div>
             <div class="dados" data-dados="transacao">
               <span class="icon">

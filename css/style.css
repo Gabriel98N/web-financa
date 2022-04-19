@@ -318,20 +318,6 @@ body {
   background-color: var(--red);
 }
 
-.btn-pagar {
-  background-color: var(--cor-primaria);
-  color: #fff;
-  font-family: "Rubik", "Roboto", sans-serif;
-  font-size: 0.845rem;
-  text-transform: uppercase;
-  border: 0;
-  outline: none;
-  border-radius: 6px;
-  padding: 0.75rem 1.5rem;
-  margin-top: 0.625rem;
-  cursor: pointer;
-}
-
 .box-pagamento input {
   height: 50px;
   width: 100%;
@@ -344,19 +330,6 @@ body {
   color: var(--cor);
   transition: border 0.3s;
   background-color: var(--bg3);
-}
-
-.box-pagamento input::placeholder {
-  color: var(--cor);
-}
-
-.btn-confirmar {
-  margin-top: 0.625rem;
-}
-
-.btn-confirmar:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
 }
 
 [data-dados="transacao"] .icon {
