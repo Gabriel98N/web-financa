@@ -7,7 +7,7 @@ function limiteCartao() {
   const cartao = dom.el(".cartao-principal");
 
   function limite() {
-    if (cartao) {
+    if (cartao && arrCartao) {
       const idCartao = cartao.id;
       const { limite } = arrCartao[idCartao];
       const despesas = dom.converterValor(
