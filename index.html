@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Montserrat:wght@400;500;700&family=Roboto:wght@400;500;700&family=Rubik:wght@400;500;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.min.css">
   <title>Painel</title>
 </head>
 
@@ -134,7 +134,7 @@
                 </svg>
               </span>
               <h3>Receitas</h3>
-              <p>R$ 0,00</p>
+              <p data-transacao="receitas">R$ 0,00</p>
             </div>
             <div class="dados" data-dados="despesas">
               <span class="icon">
@@ -144,7 +144,7 @@
                 </svg>
               </span>
               <h3>Despesas</h3>
-              <p>R$ 0,00</p>
+              <p data-transacao="despesas">R$ 0,00</p>
             </div>
             <div class="dados" data-dados="transacao">
               <span class="icon">
@@ -160,7 +160,7 @@
                 </svg>
               </span>
               <h3>Total de Transações</h3>
-              <p>0</p>
+              <p class="qt-transacao">0</p>
             </div>
           </div>
           <div class="container-grafico">
@@ -276,7 +276,7 @@
               </div>
             </div>
           </div>
-          <div class="cartao">
+          <div class="cartao-principal">
             <div class="logos-cartao">
               <div class="logo-bandeira">
                 <img src="/img/icons/master-card.png" alt="mastercard">
@@ -291,6 +291,23 @@
             </div>
           </div>
           <a href="/cadastro.html" class="add-cartao">Novo cartão</a>
+          <div class="container-limite">
+            <div class="box-limite">
+              <h3>Limite utilizado</h3>
+              <p class="limite-utilizado">R$ 0,00</p>
+            </div>
+            <div class="box-limite">
+              <h3>Limite disponível</h3>
+              <p class="limite-disponivel">R$ 0,00</p>
+            </div>
+            <div class="progresso-limite">
+              <div class="liquido-limite"></div>
+            </div>
+            <div class="box-limite">
+              <h3>Limite total</h3>
+              <p class="limite-total">R$ 0,00</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -298,11 +315,21 @@
       <nav class="nav-aside">
         <ul class="lista-aside">
           <li>
-            <a title="Painel" href="/index.html">
+            <a title="Painel" href="/index.html" class="selecionado">
               <span>
                 <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000">
                   <path d="M0 0h24v24H0V0z" fill="none" />
                   <path d="M4 13h6c.55 0 1-.45 1-1V4c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v8c0 .55.45 1 1 1zm0 8h6c.55 0 1-.45 1-1v-4c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v4c0 .55.45 1 1 1zm10 0h6c.55 0 1-.45 1-1v-8c0-.55-.45-1-1-1h-6c-.55 0-1 .45-1 1v8c0 .55.45 1 1 1zM13 4v4c0 .55.45 1 1 1h6c.55 0 1-.45 1-1V4c0-.55-.45-1-1-1h-6c-.55 0-1 .45-1 1z" />
+                </svg>
+              </span>
+            </a>
+          </li>
+          <li>
+            <a title="Cadastro" href="/cadastro.html">
+              <span>
+                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000">
+                  <path d="M0 0h24v24H0V0z" fill="none" />
+                  <path d="M20 4H4c-1.11 0-1.99.89-1.99 2L2 18c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V6c0-1.11-.89-2-2-2zm0 14H4v-6h16v6zm0-10H4V6h16v2z" />
                 </svg>
               </span>
             </a>

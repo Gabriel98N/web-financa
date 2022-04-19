@@ -48,6 +48,15 @@ function Dom() {
     return `${text.charAt(0).toUpperCase()}${text.substr(1).toLowerCase()}`;
   }
 
+  function converterValor(element) {
+    return parseFloat(
+      element.innerText
+        .replace("R$", "")
+        .replace(/\./gi, "")
+        .replace(/,/gi, ".")
+    );
+  }
+
   return {
     el,
     els,
@@ -59,6 +68,7 @@ function Dom() {
     zeroAEsquerda,
     conversorMoeda,
     firstLetter,
+    converterValor,
   };
 }
 
