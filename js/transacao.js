@@ -46,7 +46,7 @@ function Transacao() {
           e.preventDefault();
           if (tipo_transacao.value == "despesas") {
             const limiteDisponivel = dom.converterValor(
-              dom.el(".limite-disponivel")
+              dom.el(".limite-disponivel").innerText
             );
             const mensagem = valor_transacao.nextElementSibling;
             if (Number(valor_transacao.value) > Number(limiteDisponivel)) {
@@ -80,7 +80,7 @@ function Transacao() {
           div.classList.add("transacao");
 
           const estabelecimento = dom.firstLetter(transacao.estabelecimento);
-          const valor = dom.conversorMoeda(transacao.valor, "PT-BR", "BRL");
+          const valor = dom.converterValor(transacao.valor);
           const sinal =
             transacao.tipo == "despesas" ? "arrow_drop_down" : "arrow_drop_up";
 
@@ -97,7 +97,7 @@ function Transacao() {
             </div>
             <div class="valor">
               <span class="material-icons ${sinal}">${sinal}</span>
-              <p>${valor}</p>
+              <p>${dom.conversorMoeda(valor, "PT-BR", "BRL")}</p>
             </div>
           `;
           tabelaTransacao.prepend(div);
@@ -129,7 +129,8 @@ function Transacao() {
       dom.el(".qt-transacao").innerText = filterTransacao.length;
 
       filterTransacao.forEach(({ tipo, valor }) => {
-        const totalTransacao = fnSomar(tipo, valor);
+        const convertValor = dom.converterValor(valor);
+        const totalTransacao = fnSomar(tipo, convertValor);
         dom.el(`[data-transacao=${tipo}]`).innerText = dom.conversorMoeda(
           totalTransacao,
           "PT-BR",

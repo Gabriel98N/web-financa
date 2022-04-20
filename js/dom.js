@@ -50,10 +50,7 @@ function Dom() {
 
   function converterValor(element) {
     return parseFloat(
-      element.innerText
-        .replace("R$", "")
-        .replace(/\./gi, "")
-        .replace(/,/gi, ".")
+      element.replace("R$", "").replace(/\./gi, "").replace(/,/gi, ".")
     );
   }
 

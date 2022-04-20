@@ -11,7 +11,7 @@ function limiteCartao() {
       const idCartao = cartao.id;
       const { limite, cor } = arrCartao[idCartao];
       const despesas = dom.converterValor(
-        dom.el('[data-transacao="despesas"]')
+        dom.el('[data-transacao="despesas"]').innerText
       );
       const limiteDisponivel = limite - despesas;
       const porcentagem = (despesas * 100) / limite;
