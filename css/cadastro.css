@@ -34,10 +34,7 @@
 
 .box-cadastro {
   width: 100%;
-}
-
-.box-cadastro {
-  max-width: 960px;
+  max-width: 840px;
   display: flex;
   align-items: center;
   gap: var(--gap);
@@ -47,6 +44,7 @@
   width: 100%;
   flex: 1;
   line-height: 60px;
+  align-self: flex-start;
 }
 
 .box-titulo-cadastro svg {
@@ -63,16 +61,13 @@
 .box-cadastro form {
   width: 100%;
   flex: 1;
-  background-color: var(--bg3);
+  background-color: var(--bg);
   filter: var(--filter);
   border-radius: 6px;
-  padding: 2.5rem;
 }
 
-.box-cadastro form input,
-.box-cadastro form select {
-  background-color: var(--bg);
-  border-color: var(--bg);
+.btn-cadastrar {
+  text-transform: uppercase;
 }
 
 .show-cartao {
@@ -146,10 +141,6 @@
   .box-titulo-cadastro h2 {
     font-size: 1.5rem;
     line-height: 1.5;
-  }
-
-  .box-cadastro form {
-    padding: var(--gap);
   }
 
   .img-instituicao,

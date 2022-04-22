@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Montserrat:wght@400;500;700&family=Roboto:wght@400;500;700&family=Rubik:wght@400;500;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.min.css">
+  <link rel="stylesheet" href="css/style.css">
   <title>Cadastro</title>
 </head>
 
@@ -40,11 +40,11 @@
         <h2>Cadastrar cartão</h2>
       </div>
       <form data-formulario="cadastro-cartao">
-        <div>
-          <label for="instituicao">Instituição</label>
+        <div class="box-input">
           <select id="instituicao" required autocomplete="off">
             <option value="" selected disabled></option>
           </select>
+          <label class="label" for="instituicao">Instituição</label>
           <div class="show-cartao">
             <div class="cartao">
               <div class="logos-cartao">
@@ -59,14 +59,14 @@
             </div>
           </div>
         </div>
-        <div>
-          <label for="nome-impresso">Nome impresso</label>
-          <input type="text" id="nome-impresso" required autocomplete="off" autofocus />
+        <div class="box-input">
+          <input type="text" id="nome-impresso" required autocomplete="off" autofocus data-input="texto" />
+          <label class="label" for="nome-impresso">Nome impresso</label>
           <span class="mensagem"></span>
         </div>
-        <div>
-          <label for="limite">Limite</label>
-          <input type="number" id="limite" required autocomplete="off" />
+        <div class="box-input">
+          <input type="number" id="limite" required autocomplete="off" data-input="valor" />
+          <label class="label" for="limite">Limite</label>
           <span class="mensagem"></span>
         </div>
         <button type="button" class="btn btn-cadastrar" disabled>Cadastrar cartão</button>

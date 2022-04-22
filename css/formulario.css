@@ -4,37 +4,64 @@
   gap: var(--gap);
 }
 
-[data-formulario] label {
-  margin-bottom: 5px;
-  font-weight: 500;
-  color: var(--cor2);
-  font-size: 0.845rem;
-  cursor: pointer;
-}
-
 [data-formulario] input,
 [data-formulario] select,
 .btn {
   height: 50px;
   width: 100%;
   border-radius: 6px;
-  border: 2px solid var(--bg3);
+  border: 2px solid var(--border-color2);
   outline: none;
   font-size: 0.845rem;
   font-family: "Rubik", "Roboto", sans-serif;
-  padding: 0 0.625rem;
+  padding: 0 13px;
   color: var(--cor);
   transition: border 0.3s;
-  background-color: var(--bg3);
+  background: transparent;
+  background-color: var(--bg);
 }
 
-[data-formulario] > div {
+[data-formulario] select {
+  padding: 0 9px;
+}
+
+.box-input {
   position: relative;
+}
+
+.label {
+  color: var(--cor);
+  font-size: 0.75rem;
+  position: absolute;
+  top: 19px;
+  left: 10px;
+  text-transform: uppercase;
+  pointer-events: none;
+  transition: 0.2s;
+  background-color: var(--bg);
+  padding: 0 4px;
 }
 
 [data-formulario] input:focus,
 [data-formulario] select:focus {
   border: 2px solid var(--cor-primaria);
+}
+
+[data-formulario] input::placeholder {
+  font-size: 0.845rem;
+  color: var(--cor);
+}
+
+.box-input input:focus ~ .label,
+.box-input select:focus ~ .label,
+.box-input input:valid ~ .label,
+.box-input select:valid ~ .label {
+  top: -5px;
+}
+
+.box-input input:focus ~ .label,
+.box-input select:focus ~ .label {
+  color: var(--cor-primaria);
 }
 
 .mensagem {
@@ -65,10 +92,11 @@
 .btn {
   background-color: var(--cor-primaria);
   font-weight: 500;
-  text-transform: uppercase;
   color: #fff;
   border: 0;
   cursor: pointer;
+  font-size: 1rem;
+  font-weight: 500;
 }
 
 .btn:disabled {

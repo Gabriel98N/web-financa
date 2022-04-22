@@ -21,9 +21,7 @@ function Transacao() {
       const idCartao = cartao.id;
       const { instituicao } = arrCartao[idCartao];
       const ano = new Date().getFullYear();
-      const data = `${dom.zeroAEsquerda(dia_transacao.value)} ${
-        mes_transacao.value
-      } ${ano}`;
+      const data = `${dia_transacao.value} ${mes_transacao.value} ${ano}`;
       arrTransacao.push({
         tipo: tipo_transacao.value,
         estabelecimento: estabelecimento.value,

@@ -42,9 +42,6 @@ function limiteCartao() {
         });
 
       dom.el(".liquido-limite").style.backgroundColor = cor;
-      dom
-        .els(".container-dados .icon svg")
-        .forEach((svg) => (svg.style.fill = cor));
     }
   }
 

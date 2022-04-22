@@ -4,7 +4,7 @@ const dom = Dom();
 
 function Validacao(button, inputs) {
   const btn = dom.el(button);
-  const required = dom.els(inputs);
+  const inputsRequired = dom.els(inputs);
 
   function checarInputs(inputs) {
     let campo = true;
@@ -17,9 +17,9 @@ function Validacao(button, inputs) {
   }
 
   function validarInputs() {
-    required.forEach((item) => {
+    inputsRequired.forEach((item) => {
       item.addEventListener("input", () => {
-        if (checarInputs(required)) {
+        if (checarInputs(inputsRequired)) {
           btn.disabled = false;
         } else {
           btn.disabled = true;
@@ -28,6 +28,12 @@ function Validacao(button, inputs) {
     });
   }
   validarInputs();
+
+  inputsRequired.forEach((input) => {
+    input.addEventListener("keypress", (e) => {
+      const target = e.target;
+    });
+  });
 }
 
 export { Validacao };
