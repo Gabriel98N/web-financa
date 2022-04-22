@@ -2,6 +2,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 3rem;
 }
 
 .container-comparar-cartao .aside-navegacao {
@@ -9,7 +10,6 @@
 }
 
 .box-content-comparar {
-  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -51,13 +51,13 @@
 }
 
 .box-comparar-cartao {
+  width: 350px;
   display: flex;
   flex-direction: column;
   gap: 0.625rem;
 }
 
 .box-comparar-cartao .cartao {
-  width: 350px;
   height: 180px;
   border-radius: 6px;
   background-color: var(--bg3);
@@ -76,4 +76,26 @@
   transition: border 0.3s;
   background: transparent;
   background-color: var(--bg4);
+}
+
+@media (max-width: 1200px) {
+  .box-content-comparar {
+    width: 100%;
+    align-self: flex-start;
+  }
+
+  .box-comparar {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .icon-comparativo {
+    transform: rotate(90deg);
+  }
+}
+
+@media (max-width: 740px) {
+  .box-comparar-cartao {
+    width: 100%;
+  }
 }
