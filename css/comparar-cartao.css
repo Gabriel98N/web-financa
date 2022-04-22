@@ -30,18 +30,12 @@
   margin-bottom: var(--gap);
 }
 
-.box-fatura-comparativa {
+.icon-comparativo {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   padding: var(--gap);
-}
-
-.box-fatura-comparativa p {
-  color: var(--cor);
-  font-size: 1.125rem;
-  font-weight: bold;
 }
 
 .icon-comparativo svg {
