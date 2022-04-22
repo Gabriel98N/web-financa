@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Montserrat:wght@400;500;700&family=Roboto:wght@400;500;700&family=Rubik:wght@400;500;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.min.css">
   <title>Cadastro</title>
 </head>
 
@@ -60,14 +60,14 @@
           </div>
         </div>
         <div class="box-input">
-          <input type="text" id="nome-impresso" required autocomplete="off" autofocus data-input="texto" />
-          <label class="label" for="nome-impresso">Nome impresso</label>
+          <input type="text" id="nome-impresso" required autocomplete="off" autofocus data-input="caractere" />
           <span class="mensagem"></span>
+          <label class="label" for="nome-impresso">Nome impresso</label>
         </div>
         <div class="box-input">
-          <input type="number" id="limite" required autocomplete="off" data-input="valor" />
-          <label class="label" for="limite">Limite</label>
+          <input type="text" id="limite" required autocomplete="off" data-input="valor" />
           <span class="mensagem"></span>
+          <label class="label" for="limite">Limite</label>
         </div>
         <button type="button" class="btn btn-cadastrar" disabled>Cadastrar cartão</button>
         <a href="/index.html" class="voltar-painel">

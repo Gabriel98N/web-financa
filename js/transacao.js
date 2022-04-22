@@ -47,14 +47,20 @@ function Transacao() {
               dom.el(".limite-disponivel").innerText
             );
             const mensagem = valor_transacao.nextElementSibling;
+            const label = mensagem.parentElement.querySelector(".label");
+
+            console.log(label);
+
             if (Number(valor_transacao.value) > Number(limiteDisponivel)) {
+              const red = "#fe6263";
               mensagem.style.display = "block";
               mensagem.innerText = `Digite um valor menor que o limite disponivel no cartão. (limite: ${dom.conversorMoeda(
                 limiteDisponivel,
                 "PT-BR",
                 "BRL"
               )})`;
-              valor_transacao.style.borderColor = "#fe6263";
+              label.style.color = red;
+              valor_transacao.style.borderColor = red;
               valor_transacao.focus();
               valor_transacao.value = "";
               addTransacao.disabled = true;
@@ -78,24 +84,18 @@ function Transacao() {
           div.classList.add("transacao");
 
           const estabelecimento = dom.firstLetter(transacao.estabelecimento);
-          const valor = dom.converterValor(transacao.valor);
           const sinal =
             transacao.tipo == "despesas" ? "arrow_drop_down" : "arrow_drop_up";
 
           div.innerHTML = `
             <div class="box-estabelecimento">
-              <div>
-                <div class="estabelecimento">
-                  <p>${estabelecimento}</p>
-                </div>
-                <div>
-                  <p class="data">${transacao.data}</p>
-                </div>
+                <p class="data">${transacao.data}.</p>
+                <p class="estabelecimento">${estabelecimento}</p>
               </div>
             </div>
             <div class="valor">
               <span class="material-icons ${sinal}">${sinal}</span>
-              <p>${dom.conversorMoeda(valor, "PT-BR", "BRL")}</p>
+              <p>${dom.conversorMoeda(transacao.valor, "PT-BR", "BRL")}</p>
             </div>
           `;
           tabelaTransacao.prepend(div);
@@ -127,8 +127,7 @@ function Transacao() {
       dom.el(".qt-transacao").innerText = filterTransacao.length;
 
       filterTransacao.forEach(({ tipo, valor }) => {
-        const convertValor = dom.converterValor(valor);
-        const totalTransacao = fnSomar(tipo, convertValor);
+        const totalTransacao = fnSomar(tipo, valor);
         dom.el(`[data-transacao=${tipo}]`).innerText = dom.conversorMoeda(
           totalTransacao,
           "PT-BR",

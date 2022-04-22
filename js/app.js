@@ -5,7 +5,7 @@ import outsideEvent from "./outside-event.js";
 const dom = Dom();
 
 function App() {
-  const inputInstituicao = dom.el("#instituicao");
+  const inputInstituicao = dom.els("#instituicao");
   const cartao = dom.el(".cartao-principal");
   const active = "active";
 
@@ -53,13 +53,16 @@ function App() {
   }
 
   async function selectCartao() {
-    if (inputInstituicao) {
+    if (inputInstituicao.length) {
       const dados = await dadosJSON();
-      dados.forEach(({ instituicao }) => {
-        const option = dom.create("option");
-        option.value = instituicao;
-        option.innerText = instituicao;
-        inputInstituicao.appendChild(option);
+
+      inputInstituicao.forEach((select) => {
+        dados.forEach(({ instituicao }) => {
+          const option = dom.create("option");
+          option.value = instituicao;
+          option.innerText = instituicao;
+          select.appendChild(option);
+        });
       });
     }
   }

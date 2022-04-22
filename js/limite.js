@@ -10,6 +10,7 @@ function limiteCartao() {
     if (cartao && arrCartao) {
       const idCartao = cartao.id;
       const { limite, cor } = arrCartao[idCartao];
+
       const despesas = dom.converterValor(
         dom.el('[data-transacao="despesas"]').innerText
       );

@@ -38,10 +38,10 @@ function Dom() {
   }
 
   function conversorMoeda(numero, lang, type) {
-    return Number(numero).toLocaleString(lang, {
+    return new Intl.NumberFormat(lang, {
       style: "currency",
       currency: type,
-    });
+    }).format(numero);
   }
 
   function firstLetter(text) {

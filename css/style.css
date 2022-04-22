@@ -2,6 +2,7 @@
 @import url("loader.css");
 @import url("formulario.css");
 @import url("aviso.css");
+@import url("comparar-cartao.css");
 
 :root {
   --cor-primaria: #723ceb;
@@ -25,7 +26,7 @@
   --green: #4fc068;
 
   --border-color: #272828;
-  --border-color2: #1d1d25;
+  --border-color2: #23232c;
 
   --gap: 1.25rem;
   --filter: drop-shadow(0px 2px 2px rgba(0, 0, 0, 0.1));
@@ -563,6 +564,7 @@ body {
   align-items: center;
   padding: var(--gap) 0;
   color: var(--cor2);
+  font-size: 0.845rem;
 }
 
 .transacao + .transacao {
@@ -573,16 +575,13 @@ body {
   display: flex;
   align-items: center;
   position: relative;
-}
-
-.tabela-transacao .estabelecimento {
-  line-height: 1.5;
-  display: flex;
+  gap: 0.625rem;
 }
 
 .tabela-transacao .data {
   color: var(--cor);
-  font-size: 0.75rem;
+  text-transform: uppercase;
+  font-weight: 700;
 }
 
 .tabela-transacao .valor {

@@ -1,0 +1,79 @@
+.container-comparar-cartao {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container-comparar-cartao .aside-navegacao {
+  border: 0;
+}
+
+.box-content-comparar {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.box-comparar {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.box-content-comparar h2 {
+  width: 100%;
+  font-size: 2rem;
+  line-height: 40px;
+  margin-bottom: var(--gap);
+}
+
+.box-fatura-comparativa {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: var(--gap);
+}
+
+.box-fatura-comparativa p {
+  color: var(--cor);
+  font-size: 1.125rem;
+  font-weight: bold;
+}
+
+.icon-comparativo svg {
+  width: 50px;
+  height: 50px;
+  fill: var(--cor);
+}
+
+.box-comparar-cartao {
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+}
+
+.box-comparar-cartao .cartao {
+  width: 350px;
+  height: 180px;
+  border-radius: 6px;
+  background-color: var(--bg3);
+}
+
+.box-comparar-cartao select {
+  height: 50px;
+  width: 100%;
+  border-radius: 6px;
+  border: 0;
+  outline: none;
+  font-size: 0.845rem;
+  font-family: "Rubik", "Roboto", sans-serif;
+  padding: 0 13px;
+  color: var(--cor);
+  transition: border 0.3s;
+  background: transparent;
+  background-color: var(--bg4);
+}

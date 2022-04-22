@@ -69,10 +69,7 @@
   font-size: 0.75rem;
   line-height: 1.2;
   color: var(--red);
-  margin-top: 5px;
   background-color: var(--bg-red);
-  padding: 5px;
-  display: none;
   border-radius: 6px;
 }
 
