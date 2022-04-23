@@ -1,6 +1,8 @@
 import Dom from "./dom.js";
+import Notificacao from "./notificacao.js";
 
 const dom = Dom();
+const notificacao = Notificacao();
 
 function Transacao() {
   const arrTransacao = dom.storage("transacao");
@@ -35,6 +37,15 @@ function Transacao() {
         '[data-loader="geral"]'
       );
       dom.cardAviso("Transação adicionado com sucesso");
+      notificacao.criarNotificacao(
+        `Transação de <b>${
+          tipo_transacao.value
+        }</b> realizada com sucesso. Valor: <b>${dom.conversorMoeda(
+          valor_transacao.value,
+          "PT-BR",
+          "BRL"
+        )}</b>`
+      );
     };
 
     if (arrCartao && cartao) {
@@ -48,8 +59,6 @@ function Transacao() {
             );
             const mensagem = valor_transacao.nextElementSibling;
             const label = mensagem.parentElement.querySelector(".label");
-
-            console.log(label);
 
             if (Number(valor_transacao.value) > Number(limiteDisponivel)) {
               const red = "#fe6263";

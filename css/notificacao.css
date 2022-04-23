@@ -1,0 +1,30 @@
+.box-notificacao {
+  padding: var(--gap);
+  overflow-y: auto;
+}
+
+.notificacao {
+  padding: 0.625rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+}
+
+.notificacao:before {
+  content: "";
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: var(--cor-primaria);
+}
+
+.notificacao + .notificacao {
+  border-top: 1px solid var(--border-color);
+}
+
+.notificacao p {
+  color: var(--cor);
+  font-size: 0.845rem;
+  line-height: 1.4;
+}

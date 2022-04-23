@@ -2,7 +2,7 @@
 @import url("loader.css");
 @import url("formulario.css");
 @import url("aviso.css");
-@import url("comparar-cartao.css");
+@import url("notificacao.css");
 
 :root {
   --cor-primaria: #723ceb;
@@ -12,7 +12,7 @@
   --bg4: #26262b;
 
   --cor: #6d6c72;
-  --cor2: #fff;
+  --cor2: #e1e1e6;
   --cor3: #2e2e2e;
   --cor4: #6d6c72;
   --cor5: #1c242b;
@@ -94,7 +94,7 @@ body {
 
 .header {
   padding: 0 2.5rem;
-  background-color: var(--bg);
+  background-color: var(--bg3);
   z-index: 100;
   border-top: 3px solid var(--cor-primaria);
   position: sticky;
@@ -619,7 +619,7 @@ body {
   position: absolute;
   top: 70px;
   right: 0;
-  width: 350px;
+  width: 450px;
   height: 250px;
   z-index: 1;
   background-color: var(--bg);
@@ -651,6 +651,11 @@ body {
 
 [data-box="transacao"] {
   height: auto;
+  padding: 0;
+}
+
+[data-box="transacao"] [data-formulario] {
+  padding: var(--gap);
 }
 
 [data-box="pagamento"] {
@@ -658,12 +663,43 @@ body {
   height: auto;
 }
 
+[data-box="geral"] {
+  padding: 0;
+}
+
+.container-box-geral {
+  height: 100%;
+}
+
+[data-box="transacao"] h3,
+.container-box-geral h3 {
+  background-color: var(--bg4);
+  padding: var(--gap);
+  border-radius: 6px 6px 0 0;
+  height: 60px;
+}
+
+.box-geral {
+  height: calc(100% - 60px);
+}
+
+.vazio-geral {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.845rem;
+  color: var(--cor);
+}
+
 @media (max-width: 740px) {
   [data-box] {
     position: fixed;
-    top: 70px;
+    top: 90px;
     left: 0;
-    width: 100%;
+    width: calc(100% - 40px);
+    left: 20px;
     border-radius: 0;
   }
 
